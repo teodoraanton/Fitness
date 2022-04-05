@@ -1,0 +1,41 @@
+.title {
+    text-align: center;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    color: brown;
+}
+
+.button{
+    background-color:rgb(33, 167, 44);
+    font-size: large;
+    font-weight: bold;
+}
+
+.home-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    max-width: 300px; 
+
+    margin: auto; 
+    width: 220px;
+
+    
+}
+
+.cities{
+    color:rgb(20, 50, 131);
+    font-weight: bold;
+}
+
+#sect1 {  
+    height: 650 px;  
+    color: #fff;
+    background-image: url("../../assets/images/back2.jpg");  
+    background-size: 100%; 
+    background-size: cover;
+} 
