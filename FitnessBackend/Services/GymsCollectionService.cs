@@ -49,9 +49,9 @@ namespace FitnessBackend.Services
             return result.ToList();
         }
 
-        public async Task<List<Gyms>> GetGymsByCityName(String cityName)
+        public async Task<List<Gyms>> GetGymsByCityName(Guid city)
         {
-            return (await _gyms.FindAsync(gym => gym.CityName == cityName)).ToList();
+            return (await _gyms.FindAsync(gym => gym.City == city)).ToList();
         }
 
         public async Task<bool> Update(Gyms model, Guid id)

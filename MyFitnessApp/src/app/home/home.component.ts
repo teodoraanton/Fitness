@@ -14,10 +14,11 @@ import { GymsService } from '../services/gyms.service';
 export class HomeComponent implements OnInit {
   cityControl = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
-  selectedValue?: string;
-  cities: City[] | undefined;
 
-  gyms: Array<Gym> = []
+  selectedCity: String = '';
+
+  cities: City[] | undefined;
+  gyms: Gym[] = [];
 
   constructor(
     private router: Router, 
@@ -25,13 +26,21 @@ export class HomeComponent implements OnInit {
     private gymsService: GymsService) {}
 
   ngOnInit(): void {
-    this.citiesService.getCities().subscribe((cities) => {
+    this.citiesService.getCities().subscribe(cities => {
       this.cities = cities;
+    });
+    this.gymsService.getGyms().subscribe(gyms => {
+      this.gyms = gyms;
     });
   }
 
   show(){
-
+    this.gymsService.getGymsByCity(this.selectedCity).subscribe(
+      (response) => {
+      this.gyms = response;
+      },
+      (err) => console.log(err)
+    );
   }
 
   showGym(id: string){

@@ -5,10 +5,11 @@
     font-style: italic;
     font-weight: bold;
     color: brown;
+    margin-top: 30px;
 }
 
 .button{
-    background-color:rgb(30, 237, 47);
+    background-color: rgb(248, 248, 248, 0.5);
     color: black;
     font-size: large;
     font-weight: bold;
@@ -42,7 +43,7 @@
             height: 200px;
             font-weight: bold;
             background-color: antiquewhite;
-            background: rgba(76, 175, 80, 0.3)
+            background: rgba(255, 255, 255, 0.3)
         }
     }
 }
@@ -53,6 +54,7 @@
     font-family: 'Times New Roman', Times, serif;           
     font-weight: bold;
     font-style: italic;
+    background-color: rgb(248, 248, 248, 0.5);
 }
 
 .card-content{
@@ -60,7 +62,7 @@
     color: rgb(34, 0, 255);
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
-    background-color: rgb(186, 235, 241);
+    background-color: rgb(248, 248, 248, 0.5);
 }
 
 .cities{
@@ -74,4 +76,8 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-} 
+}
+
+.cities::ng-deep{
+    background-color: rgba(255, 255, 255, 0.3)
+}

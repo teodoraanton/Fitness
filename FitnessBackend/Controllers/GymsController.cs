@@ -54,12 +54,12 @@ namespace FitnessBackend.Controllers
         /// <summary>
         ///     Return on another route a gym with a specified city id
         /// </summary>
-        /// <param name="cityName"></param>
+        /// <param name="city"></param>
         /// <returns></returns>
-        [HttpGet("CityName/{cityName}")]
-        public async Task<IActionResult> GetByCityName(String cityName)
+        [HttpGet("CityName/{city}")]
+        public async Task<IActionResult> GetByCityName(Guid city)
         {
-            Task<List<Gyms>> gyms = _gymsCollectionService.GetGymsByCityName(cityName);
+            Task<List<Gyms>> gyms = _gymsCollectionService.GetGymsByCityName(city);
             if (gyms == null)
             {
                 return NotFound();

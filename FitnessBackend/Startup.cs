@@ -39,10 +39,17 @@ namespace FitnessBackend
                             .AllowAnyHeader();
                 }));
 
+            //services.AddControllers().AddJsonOptions(options => {
+            //    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            //    options.JsonSerializerOptions.DictionaryKeyPolicy = null;
+
+            //});
+
+            //services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+            //services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddControllers();
-            //.AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
-            //services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FitnessBackend", Version = "v1" });

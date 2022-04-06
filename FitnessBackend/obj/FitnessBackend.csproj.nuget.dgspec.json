@@ -41,6 +41,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AspNetCore.Mvc.Routes.DebuggingLoggerMiddleware": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.15.0, )"

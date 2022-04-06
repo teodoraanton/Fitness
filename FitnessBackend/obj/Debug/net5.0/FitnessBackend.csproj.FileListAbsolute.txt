@@ -44,3 +44,8 @@ D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\ref\FitnessBackend.dll
 D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.xml
 D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.pdb
 D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.genruntimeconfig.cache
+D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.csproj.AssemblyReference.cache
+D:\FACULTATE\Fitness\FitnessBackend\bin\Debug\net5.0\AspNetCore.Mvc.Routes.DebuggingLoggerMiddleware.dll
+D:\FACULTATE\Fitness\FitnessBackend\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\FACULTATE\Fitness\FitnessBackend\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\FACULTATE\Fitness\FitnessBackend\bin\Debug\net5.0\Newtonsoft.Json.dll

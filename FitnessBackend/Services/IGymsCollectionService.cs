@@ -8,6 +8,6 @@ namespace FitnessBackend.Services
 {
     public interface IGymsCollectionService: ICollectionService<Gyms>
     {
-        Task<List<Gyms>> GetGymsByCityName(String cityName);
+        Task<List<Gyms>> GetGymsByCityName(Guid city);
     }
 }

@@ -22,9 +22,17 @@ export class GymsService {
     );
   }
 
-  // getGymsByCity(city: string): Observable<Gym[]>{
-  //   return this.httpClient.get<Gym[]>(
-  //     this.baseUrl
-  //   )
-  // }
+  getGymsByCity(city: String): Observable<Gym[]>{
+    return this.httpClient.get<Gym[]>(
+      this.baseUrl + '/Gyms/CityName/' + city,
+      this.httpOptions
+    )
+  }
+
+  getGymById(id: string){
+    return this.httpClient.get<Gym>(
+      this.baseUrl + '/Gyms/' + id,
+      this.httpOptions
+    );
+  }
 }
