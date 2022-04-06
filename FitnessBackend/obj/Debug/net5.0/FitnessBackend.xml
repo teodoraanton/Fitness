@@ -52,11 +52,11 @@
             <param name="gym"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.GymsController.GetByCityId(System.Guid)">
+        <member name="M:FitnessBackend.Controllers.GymsController.GetByCityName(System.String)">
             <summary>
                 Return on another route a gym with a specified city id
             </summary>
-            <param name="id"></param>
+            <param name="cityName"></param>
             <returns></returns>
         </member>
         <member name="M:FitnessBackend.Controllers.GymsController.GetByGymId(System.Guid)">

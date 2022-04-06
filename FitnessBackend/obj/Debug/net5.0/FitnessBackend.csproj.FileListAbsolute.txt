@@ -1,4 +1,3 @@
-D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.csproj.AssemblyReference.cache
 D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.GeneratedMSBuildEditorConfig.editorconfig
 D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.AssemblyInfoInputs.cache
 D:\FACULTATE\Fitness\FitnessBackend\obj\Debug\net5.0\FitnessBackend.AssemblyInfo.cs

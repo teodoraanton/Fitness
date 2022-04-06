@@ -10,7 +10,8 @@ namespace FitnessBackend.Models
         public Guid Id { get; set; }
         public String Name { get; set; }
         public String Address { get; set; }
-        public Guid IDCity { get; set; }
+        public String CityName { get; set; }
+        //public Guid IDCity { get; set; }
         //image
     }
 }

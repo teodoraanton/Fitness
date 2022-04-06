@@ -15,13 +15,9 @@ export class HomeComponent implements OnInit {
   cityControl = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
   selectedValue?: string;
-  cities?: City[];
+  cities: City[] | undefined;
 
-  gyms: Array<Gym> = [
-    {id:'1', name:'RedGym', address:'1 Decembrie Street', cityId:"Brasov"},
-    {id:'2', name:'WordClass', address:'15 Noiembrie Street', cityId:"Brasov"},
-    {id:'3', name:'18Gym', address:'Vasile Alecsandri Street', cityId:'Bucuresti'},
-  ]
+  gyms: Array<Gym> = []
 
   constructor(
     private router: Router, 
