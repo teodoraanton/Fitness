@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FitnessBackend</name>
+    </assembly>
+    <members>
+        <member name="M:FitnessBackend.Controllers.CitiesController.GetCities">
+            <summary>
+                Return the list of cities
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.CitiesController.CreateCity(FitnessBackend.Models.Cities)">
+            <summary>
+                Add a new city in list
+            </summary>
+            <param name="city"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.CitiesController.GetByCityId(System.Guid)">
+            <summary>
+                Return the city with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.CitiesController.UpdateCity(System.Guid,FitnessBackend.Models.Cities)">
+            <summary>
+                 Return the list of cities with a city updated
+            </summary>
+            <param name="id"></param>
+            <param name="cityToUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.CitiesController.DeleteCity(System.Guid)">
+            <summary>
+                Delete a city with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymsController.GetGyms">
+            <summary>
+                Return the list of gyms
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymsController.CreateGym(FitnessBackend.Models.Gyms)">
+            <summary>
+                Add a new gym in list
+            </summary>
+            <param name="gym"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymsController.GetByCityId(System.Guid)">
+            <summary>
+                Return on another route a gym with a specified city id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymsController.GetByGymId(System.Guid)">
+            <summary>
+                Return the gym with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymsController.UpdateGym(System.Guid,FitnessBackend.Models.Gyms)">
+            <summary>
+                 Return the list of gyms with a gym updated
+            </summary>
+            <param name="id"></param>
+            <param name="gymToUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymsController.DeleteGym(System.Guid)">
+            <summary>
+                Delete a gym with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
