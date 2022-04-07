@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Services
 {
-    public class GymsCollectionService : IGymsCollectionService
+    public class GymCollectionService : IGymCollectionService
     {
-        private readonly IMongoCollection<Gyms> _gyms;
+        private readonly IMongoCollection<Gym> _gyms;
 
-        public GymsCollectionService(IMongoDBSettingsGyms settings)
+        public GymCollectionService(IMongoDBSettingsGyms settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _gyms = database.GetCollection<Gyms>(settings.GymsCollectionName);
+            _gyms = database.GetCollection<Gym>(settings.GymsCollectionName);
         }
-        public async Task<bool> Create(Gyms model)
+        public async Task<bool> Create(Gym model)
         {
+            model.Id = new Guid();
             await _gyms.InsertOneAsync(model);
 
             return true;
@@ -37,24 +38,26 @@ namespace FitnessBackend.Services
             return true;
         }
 
-        public async Task<Gyms> Get(Guid id)
+        public Gym Get(Guid id)
         {
-            return (await _gyms.FindAsync(gym => gym.Id == id)).FirstOrDefault();
+            var filter = Builders<Gym>.Filter.Eq(f => f.Id, id);
+            return _gyms.Find(filter).FirstOrDefault();
         }
 
-        public async Task<List<Gyms>> GetAll()
+        public async Task<List<Gym>> GetAll()
         {
             var result = await _gyms.FindAsync(gym => true);
 
             return result.ToList();
         }
 
-        public async Task<List<Gyms>> GetGymsByCityName(Guid city)
+        public List<Gym> GetGymsByCityName(Guid city)
         {
-            return (await _gyms.FindAsync(gym => gym.City == city)).ToList();
+            var filter = Builders<Gym>.Filter.Eq(f => f.CityID, city);
+            return  _gyms.Find(filter).ToList();
         }
 
-        public async Task<bool> Update(Gyms model, Guid id)
+        public async Task<bool> Update(Gym model, Guid id)
         {
             model.Id = id;
             var result = await _gyms.ReplaceOneAsync(gym => gym.Id == id, model);

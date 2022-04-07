@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Services
 {
-    public interface ICitiesCollectionService: ICollectionService<Cities>
+    public interface ICityCollectionService: ICollectionService<City>
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Models
 {
-    public class Cities
+    public class City
     {
         [Required]
         public Guid Id { get; set; }

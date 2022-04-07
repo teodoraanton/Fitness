@@ -12,14 +12,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import { CitiesService } from './services/cities.service';
-import { GymsService } from './services/gyms.service';
+import { CityService } from './services/city.service';
+import { GymService } from './services/gym.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GymDetailsComponent } from './gym-details/gym-details.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    GymDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,11 +37,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule,
+    MatTableModule
   ],
   providers: [
-    CitiesService,
-    GymsService
+    CityService,
+    GymService
   ],
   bootstrap: [AppComponent]
 })

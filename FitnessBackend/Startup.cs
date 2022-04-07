@@ -60,8 +60,8 @@ namespace FitnessBackend
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
-            services.AddTransient<ICitiesCollectionService, CitiesCollectionService>();
-            services.AddTransient<IGymsCollectionService, GymsCollectionService>();
+            services.AddTransient<ICityCollectionService, CityCollectionService>();
+            services.AddTransient<IGymCollectionService, GymCollectionService>();
 
             services.Configure<MongoDBSettings>(Configuration.GetSection(nameof(MongoDBSettings)));
             services.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);

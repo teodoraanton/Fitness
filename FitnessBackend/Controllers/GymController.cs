@@ -10,11 +10,11 @@ namespace FitnessBackend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GymsController: ControllerBase
+    public class GymController: ControllerBase
     {
-        IGymsCollectionService _gymsCollectionService;
+        IGymCollectionService _gymsCollectionService;
 
-        public GymsController(IGymsCollectionService gymsCollectionService)
+        public GymController(IGymCollectionService gymsCollectionService)
         {
             _gymsCollectionService = gymsCollectionService;
         }
@@ -26,7 +26,7 @@ namespace FitnessBackend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetGyms()
         {
-            List<Gyms> gyms = await _gymsCollectionService.GetAll();
+            List<Gym> gyms = await _gymsCollectionService.GetAll();
             return Ok(gyms);
         }
 
@@ -38,7 +38,7 @@ namespace FitnessBackend.Controllers
         /// <param name="gym"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateGym ([FromBody] Gyms gym)
+        public async Task<IActionResult> CreateGym ([FromBody] Gym gym)
         {
             if (gym == null)
             {
@@ -54,12 +54,12 @@ namespace FitnessBackend.Controllers
         /// <summary>
         ///     Return on another route a gym with a specified city id
         /// </summary>
-        /// <param name="city"></param>
+        /// <param name="cityID"></param>
         /// <returns></returns>
-        [HttpGet("CityName/{city}")]
-        public async Task<IActionResult> GetByCityName(Guid city)
+        [HttpGet("CityID/{cityID}")]
+        public IActionResult GetByCityName(Guid cityID)
         {
-            Task<List<Gyms>> gyms = _gymsCollectionService.GetGymsByCityName(city);
+            List<Gym> gyms = _gymsCollectionService.GetGymsByCityName(cityID);
             if (gyms == null)
             {
                 return NotFound();
@@ -73,9 +73,9 @@ namespace FitnessBackend.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}", Name = "GetGymById")]
-        public async Task<IActionResult> GetByGymId(Guid id)
+        public IActionResult GetByGymId(Guid id)
         {
-            Task<Gyms> gym = _gymsCollectionService.Get(id);
+            Gym gym = _gymsCollectionService.Get(id);
             if (gym == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace FitnessBackend.Controllers
         /// <param name="gymToUpdate"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateGym(Guid id, [FromBody] Gyms gymToUpdate)
+        public async Task<IActionResult> UpdateGym(Guid id, [FromBody] Gym gymToUpdate)
         {
             if (gymToUpdate == null)
             {

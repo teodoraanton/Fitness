@@ -3,13 +3,13 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { City } from '../models/city';
 import { Gym } from '../models/gym';
-import { CitiesService } from '../services/cities.service';
-import { GymsService } from '../services/gyms.service';
+import { CityService } from '../services/city.service';
+import { GymService } from '../services/gym.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   cityControl = new FormControl('', Validators.required);
@@ -21,30 +21,32 @@ export class HomeComponent implements OnInit {
   gyms: Gym[] = [];
 
   constructor(
-    private router: Router, 
-    private citiesService: CitiesService, 
-    private gymsService: GymsService) {}
+    private router: Router,
+    private cityService: CityService,
+    private gymService: GymService
+  ) {}
 
   ngOnInit(): void {
-    this.citiesService.getCities().subscribe(cities => {
+    this.cityService.getCities().subscribe((cities) => {
       this.cities = cities;
     });
-    this.gymsService.getGyms().subscribe(gyms => {
+    this.gymService.getGyms().subscribe((gyms) => {
       this.gyms = gyms;
     });
   }
 
-  show(){
-    this.gymsService.getGymsByCity(this.selectedCity).subscribe(
+  show() {
+    this.gymService.getGymsByCity(this.selectedCity).subscribe(
       (response) => {
-      this.gyms = response;
+        this.gyms = response;
       },
       (err) => console.log(err)
     );
   }
 
-  showGym(id: string){
-    
+  showGym(id: string) {
+    this.router.navigate(['/gym-details'], {
+      queryParams: { gymID: id },
+    });
   }
-
 }

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Models
 {
-    public class Gyms
+    public class Gym
     {
         [Required]
         public Guid Id { get; set; }
         [Required]
-        public String Name { get; set; }
+        public string Name { get; set; }
         [Required]
-        public String Address { get; set; }
+        public string Address { get; set; }
         [Required]
-        public Guid City { get; set; }
+        public Guid CityID { get; set; }
     }
 }

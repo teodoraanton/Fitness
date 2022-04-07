@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Gym } from '../models/gym';
 
 @Injectable()
-export class GymsService {
+export class GymService {
   readonly baseUrl = 'https://localhost:5001';
   readonly httpOptions = {
     headers: new HttpHeaders({
@@ -13,25 +13,22 @@ export class GymsService {
     }),
   };
 
-  constructor(private router: Router, private httpClient: HttpClient) { }
+  constructor(private router: Router, private httpClient: HttpClient) {}
 
   getGyms(): Observable<Gym[]> {
+    return this.httpClient.get<Gym[]>(this.baseUrl + '/Gym', this.httpOptions);
+  }
+
+  getGymsByCity(cityID: String): Observable<Gym[]> {
     return this.httpClient.get<Gym[]>(
-      this.baseUrl + '/Gyms',
+      this.baseUrl + '/Gym/CityID/' + cityID,
       this.httpOptions
     );
   }
 
-  getGymsByCity(city: String): Observable<Gym[]>{
-    return this.httpClient.get<Gym[]>(
-      this.baseUrl + '/Gyms/CityName/' + city,
-      this.httpOptions
-    )
-  }
-
-  getGymById(id: string){
+  getGymById(id: string) {
     return this.httpClient.get<Gym>(
-      this.baseUrl + '/Gyms/' + id,
+      this.baseUrl + '/Gym/' + id,
       this.httpOptions
     );
   }

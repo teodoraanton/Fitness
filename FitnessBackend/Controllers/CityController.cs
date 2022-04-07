@@ -10,11 +10,11 @@ namespace FitnessBackend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CitiesController: ControllerBase
+    public class CityController: ControllerBase
     {
-        ICitiesCollectionService _citiesCollectionService;
+        ICityCollectionService _citiesCollectionService;
 
-        public CitiesController(ICitiesCollectionService citiesCollectionService)
+        public CityController(ICityCollectionService citiesCollectionService)
         {
             _citiesCollectionService = citiesCollectionService;
         }
@@ -26,7 +26,7 @@ namespace FitnessBackend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCities()
         {
-            List<Cities> cities = await _citiesCollectionService.GetAll();
+            List<City> cities = await _citiesCollectionService.GetAll();
             return Ok(cities);
         }
 
@@ -38,7 +38,7 @@ namespace FitnessBackend.Controllers
         /// <param name="city"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateCity([FromBody] Cities city)
+        public async Task<IActionResult> CreateCity([FromBody] City city)
         {
             if (city == null)
             {
@@ -57,9 +57,9 @@ namespace FitnessBackend.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}", Name = "GetCityById")]
-        public async Task<IActionResult> GetByCityId(Guid id)
+        public IActionResult GetByCityId(Guid id)
         {
-            Task<Cities> city = _citiesCollectionService.Get(id);
+            City city = _citiesCollectionService.Get(id);
             if (city == null)
             {
                 return NotFound();
@@ -74,7 +74,7 @@ namespace FitnessBackend.Controllers
         /// <param name="cityToUpdate"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateCity(Guid id, [FromBody] Cities cityToUpdate)
+        public async Task<IActionResult> UpdateCity(Guid id, [FromBody] City cityToUpdate)
         {
             if (cityToUpdate == null)
             {

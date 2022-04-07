@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { City } from '../models/city';
 
 @Injectable()
-export class CitiesService {
+export class CityService {
   readonly baseUrl = 'https://localhost:5001';
   readonly httpOptions = {
     headers: new HttpHeaders({
@@ -13,11 +13,11 @@ export class CitiesService {
     }),
   };
 
-  constructor(private router: Router, private httpClient: HttpClient) { }
+  constructor(private router: Router, private httpClient: HttpClient) {}
 
   getCities(): Observable<City[]> {
     return this.httpClient.get<City[]>(
-      this.baseUrl + '/Cities',
+      this.baseUrl + '/City',
       this.httpOptions
     );
   }

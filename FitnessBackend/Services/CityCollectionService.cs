@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Services
 {
-    public class CitiesCollectionService : ICitiesCollectionService
+    public class CityCollectionService : ICityCollectionService
     {
-        private readonly IMongoCollection<Cities> _cities;
+        private readonly IMongoCollection<City> _cities;
 
-        public CitiesCollectionService(IMongoDBSettings settings)
+        public CityCollectionService(IMongoDBSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _cities = database.GetCollection<Cities>(settings.CitiesCollectionName);
+            _cities = database.GetCollection<City>(settings.CitiesCollectionName);
         }
-        public async Task<bool> Create(Cities model)
+        public async Task<bool> Create(City model)
         {
+            model.Id = new Guid();
             await _cities.InsertOneAsync(model);
 
             return true;
@@ -37,19 +38,20 @@ namespace FitnessBackend.Services
             return true;
         }
 
-        public async Task<Cities> Get(Guid id)
+        public City Get(Guid id)
         {
-            return (await _cities.FindAsync(city => city.Id == id)).FirstOrDefault();
+            var filter = Builders<City>.Filter.Eq(f => f.Id, id);
+            return _cities.Find(filter).FirstOrDefault();
         }
 
-        public async Task<List<Cities>> GetAll()
+        public async Task<List<City>> GetAll()
         {
             var result = await _cities.FindAsync(city => true);
 
             return result.ToList();
         }
 
-        public async Task<bool> Update(Cities model, Guid id)
+        public async Task<bool> Update(City model, Guid id)
         {
             model.Id = id;
             var result = await _cities.ReplaceOneAsync(city => city.Id == id, model);

@@ -4,27 +4,27 @@
         <name>FitnessBackend</name>
     </assembly>
     <members>
-        <member name="M:FitnessBackend.Controllers.CitiesController.GetCities">
+        <member name="M:FitnessBackend.Controllers.CityController.GetCities">
             <summary>
                 Return the list of cities
             </summary>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.CitiesController.CreateCity(FitnessBackend.Models.Cities)">
+        <member name="M:FitnessBackend.Controllers.CityController.CreateCity(FitnessBackend.Models.City)">
             <summary>
                 Add a new city in list
             </summary>
             <param name="city"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.CitiesController.GetByCityId(System.Guid)">
+        <member name="M:FitnessBackend.Controllers.CityController.GetByCityId(System.Guid)">
             <summary>
                 Return the city with the specified id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.CitiesController.UpdateCity(System.Guid,FitnessBackend.Models.Cities)">
+        <member name="M:FitnessBackend.Controllers.CityController.UpdateCity(System.Guid,FitnessBackend.Models.City)">
             <summary>
                  Return the list of cities with a city updated
             </summary>
@@ -32,41 +32,41 @@
             <param name="cityToUpdate"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.CitiesController.DeleteCity(System.Guid)">
+        <member name="M:FitnessBackend.Controllers.CityController.DeleteCity(System.Guid)">
             <summary>
                 Delete a city with the specified id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.GymsController.GetGyms">
+        <member name="M:FitnessBackend.Controllers.GymController.GetGyms">
             <summary>
                 Return the list of gyms
             </summary>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.GymsController.CreateGym(FitnessBackend.Models.Gyms)">
+        <member name="M:FitnessBackend.Controllers.GymController.CreateGym(FitnessBackend.Models.Gym)">
             <summary>
                 Add a new gym in list
             </summary>
             <param name="gym"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.GymsController.GetByCityName(System.Guid)">
+        <member name="M:FitnessBackend.Controllers.GymController.GetByCityName(System.Guid)">
             <summary>
                 Return on another route a gym with a specified city id
             </summary>
-            <param name="city"></param>
+            <param name="cityID"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.GymsController.GetByGymId(System.Guid)">
+        <member name="M:FitnessBackend.Controllers.GymController.GetByGymId(System.Guid)">
             <summary>
                 Return the gym with the specified id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.GymsController.UpdateGym(System.Guid,FitnessBackend.Models.Gyms)">
+        <member name="M:FitnessBackend.Controllers.GymController.UpdateGym(System.Guid,FitnessBackend.Models.Gym)">
             <summary>
                  Return the list of gyms with a gym updated
             </summary>
@@ -74,7 +74,7 @@
             <param name="gymToUpdate"></param>
             <returns></returns>
         </member>
-        <member name="M:FitnessBackend.Controllers.GymsController.DeleteGym(System.Guid)">
+        <member name="M:FitnessBackend.Controllers.GymController.DeleteGym(System.Guid)">
             <summary>
                 Delete a gym with the specified id
             </summary>
