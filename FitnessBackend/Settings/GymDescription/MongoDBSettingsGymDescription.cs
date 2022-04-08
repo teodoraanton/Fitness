@@ -1,4 +1,4 @@
-﻿using FitnessBackend.Settings.GymDescription;
+﻿using FitnessBackend.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;

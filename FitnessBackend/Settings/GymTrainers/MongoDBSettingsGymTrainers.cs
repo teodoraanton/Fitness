@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FitnessBackend.Settings.GymTrainers
+namespace FitnessBackend.Settings
 {
     public class MongoDBSettingsGymTrainers: IMongoDBSettingsGymTrainers
     {

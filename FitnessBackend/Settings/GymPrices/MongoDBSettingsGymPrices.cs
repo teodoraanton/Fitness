@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FitnessBackend.Settings;
 
-namespace FitnessBackend.Settings.GymPrices
+namespace FitnessBackend.Settings
 {
     public class MongoDBSettingsGymPrices: IMongoDBSettingsGymPrices
     {

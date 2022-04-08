@@ -39,16 +39,6 @@ namespace FitnessBackend
                             .AllowAnyHeader();
                 }));
 
-            //services.AddControllers().AddJsonOptions(options => {
-            //    options.JsonSerializerOptions.PropertyNamingPolicy = null;
-            //    options.JsonSerializerOptions.DictionaryKeyPolicy = null;
-
-            //});
-
-            //services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
-
-            //services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -61,13 +51,40 @@ namespace FitnessBackend
                 c.IncludeXmlComments(xmlPath);
             });
             services.AddTransient<ICityCollectionService, CityCollectionService>();
-            services.AddTransient<IGymCollectionService, GymCollectionService>();
+            services.AddTransient<IGymCollectionService, GymCollectionService>();            
+            services.AddTransient<IGymDescriptionCollectionService, GymDescriptionCollectionService>();
+            services.AddTransient<IGymPricesCollectionService, GymPricesCollectionService>();
+            services.AddTransient<IGymScheduleCollectionService, GymScheduleCollectionService>();
+            services.AddTransient<IGymTrainersCollectionService, GymTrainersCollectionService>();
+            services.AddTransient<IGymTrainingsCollectionService, GymTrainingsCollectionService>();
 
+            //city
             services.Configure<MongoDBSettings>(Configuration.GetSection(nameof(MongoDBSettings)));
             services.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 
-            services.Configure<MongoDBSettingsGym>(Configuration.GetSection(nameof(MongoDBSettingsGym)));
-            services.AddSingleton<IMongoDBSettingsGym>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGym>>().Value);
+            //gym
+            services.Configure<MongoDBSettingsGymTrainings>(Configuration.GetSection(nameof(MongoDBSettingsGymTrainings)));
+            services.AddSingleton<IMongoDBSettingsGym>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymTrainings>>().Value);
+
+            //gym-description
+            services.Configure<MongoDBSettingsGymDescription>(Configuration.GetSection(nameof(MongoDBSettingsGymDescription)));
+            services.AddSingleton<IMongoDBSettingsGymDescription>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymDescription>>().Value);
+
+            //gym-prices
+            services.Configure<MongoDBSettingsGymPrices>(Configuration.GetSection(nameof(MongoDBSettingsGymPrices)));
+            services.AddSingleton<IMongoDBSettingsGymPrices>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymPrices>>().Value);
+
+            //gym-schedule
+            services.Configure<MongoDBSettingsGymSchedule>(Configuration.GetSection(nameof(MongoDBSettingsGymSchedule)));
+            services.AddSingleton<IMongoDBSettingsGymSchedule>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymSchedule>>().Value);
+
+            //gym-trainers
+            services.Configure<MongoDBSettingsGymTrainers>(Configuration.GetSection(nameof(MongoDBSettingsGymTrainers)));
+            services.AddSingleton<IMongoDBSettingsGymTrainers>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymTrainers>>().Value);
+
+            //gym-trainings
+            services.Configure<MongoDBSettingsGymTrainings>(Configuration.GetSection(nameof(MongoDBSettingsGymTrainings)));
+            services.AddSingleton<IMongoDBSettingsGym>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymTrainings>>().Value);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

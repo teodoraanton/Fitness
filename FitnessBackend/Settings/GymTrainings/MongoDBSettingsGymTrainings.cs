@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FitnessBackend.Settings.GymTrainings
+namespace FitnessBackend.Settings.GymTinings
 {
-    public class MongoDBSettingsGymsTrainings: IMongoDBSettingsGymsTrainings
+    public class MongoDBSettingsGymTrainings: IMongoDBSettingsGymTrainings
     {
         public string  GymTrainingsCollectionName { get; set; }
         public string ConnectionString { get; set; }
