@@ -11,6 +11,6 @@ namespace FitnessBackend.Models
         [Required]
         public Guid Id { get; set; }
         [Required]
-        public String Name { get; set; }
+        public string Name { get; set; }
     }
 }

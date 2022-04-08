@@ -26,9 +26,9 @@ export class GymService {
     );
   }
 
-  getGymById(id: string) {
+  getGymById(gymId: string) {
     return this.httpClient.get<Gym>(
-      this.baseUrl + '/Gym/' + id,
+      this.baseUrl + '/Gym/' + gymId,
       this.httpOptions
     );
   }

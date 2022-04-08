@@ -11,7 +11,13 @@ import { GymService } from '../services/gym.service';
 })
 export class GymDetailsComponent implements OnInit {
   gymId: string = "";
-  gymName: string = "";
+  gym: Gym = {
+    id: "",
+    name: "",
+    address: "",
+    gymImagePath: "",
+    city: ""
+  };
   days: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   constructor(
@@ -22,12 +28,14 @@ export class GymDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this._activatedRoute.queryParams.subscribe((params) => {
-      this.gymId = params['gymId'];
+      this.gymId = params['gymID'];
+
+      this.gymService.getGymById(this.gymId).subscribe(gym => {
+        this.gym = gym;
+      })
     }),
-    this.gymService.getGymById(this.gymId).subscribe(gym => {
-      this.gymName = gym.name;
-      console.log(this.gymName);
-    })
+    
+    console.log(this.gymId)
   }
 
 }

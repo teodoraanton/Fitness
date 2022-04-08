@@ -59,7 +59,7 @@ namespace FitnessBackend.Controllers
         [HttpGet("CityID/{cityID}")]
         public IActionResult GetByCityName(Guid cityID)
         {
-            List<Gym> gyms = _gymsCollectionService.GetGymsByCityName(cityID);
+            List<Gym> gyms = _gymsCollectionService.GetGymsByCityID(cityID);
             if (gyms == null)
             {
                 return NotFound();
@@ -108,7 +108,7 @@ namespace FitnessBackend.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("deleteGym/{id}")]
         public async Task<IActionResult> DeleteGym(Guid id)
         {
             if (await _gymsCollectionService.Delete(id))

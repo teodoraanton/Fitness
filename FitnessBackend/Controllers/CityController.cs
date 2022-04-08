@@ -92,7 +92,7 @@ namespace FitnessBackend.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("deleteCity/{id}")]
         public async Task<IActionResult> DeleteCity(Guid id)
         {
             if (await _citiesCollectionService.Delete(id))

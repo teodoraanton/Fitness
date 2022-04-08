@@ -1,43 +1,53 @@
 <div id="sect1">
-    <form class="home-page">
-        <h2 class="title">FIND YOUR FAVORITE GYM SPOT</h2>
-        
-        <mat-form-field appearance="fill">
-            <mat-label>Choose your city</mat-label>
-            <mat-select [(value)]="selectedCity" [formControl]="cityControl" required>
-            <mat-option>--</mat-option>
-            <mat-option class="cities" *ngFor="let city of cities" [value]="city.id">
-                {{city.name}}
-            </mat-option>
-            </mat-select>
-            <mat-error *ngIf="cityControl.hasError('required')">Please choose a city</mat-error>
-            <mat-hint>{{cityControl.value?.name}}</mat-hint>
-        </mat-form-field>
+  <form class="home-page">
+    <h2 class="title">FIND YOUR FAVORITE GYM SPOT</h2>
 
-        <br> 
+    <mat-form-field appearance="fill">
+      <mat-label>Choose your city</mat-label>
+      <mat-select [(value)]="selectedCity" [formControl]="cityControl" required>
+        <mat-option>--</mat-option>
+        <mat-option
+          class="cities"
+          *ngFor="let city of cities"
+          [value]="city.id"
+        >
+          {{ city.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="cityControl.hasError('required')"
+        >Please choose a city</mat-error
+      >
+      <mat-hint>{{ cityControl.value?.name }}</mat-hint>
+    </mat-form-field>
 
-        <button class="button" mat-raised-button color="primary" (click)="show()">Find gyms</button>
-        
-    </form>
-    
-    <div class="container">
-        <div class="gym-div" *ngFor="let gym of gyms">
-            <mat-card class="card-gym">
-            <mat-card-title class="card-title">
-                {{ gym.name }}
-            </mat-card-title>
-        
-            <mat-card-content class="card-content">
-                {{ gym.address }}                
-            </mat-card-content>
-            <br /><br /><br />
-        
-            <mat-card-actions>
-                <button mat-icon-button (click)="showGym(gym.id)">
-                    <mat-icon>extension</mat-icon>
-                </button>
-            </mat-card-actions>
-            </mat-card>
-        </div>
+    <br />
+
+    <button class="button" mat-raised-button color="primary" (click)="show()">
+      Find gyms
+    </button>
+  </form>
+
+  <div class="container">
+    <div class="gym-div" *ngFor="let gym of gyms">
+      <mat-card class="card-gym">
+        <mat-card-title class="card-title">
+          {{ gym.name }}
+        </mat-card-title>
+
+        <mat-card-content class="card-content">
+          {{ gym.address }}
+        </mat-card-content>
+
+        <img mat-card-image src="../../assets/images/{{ gym.gymImagePath }}" />
+        <button mat-icon-button (click)="showGym(gym)">
+          <mat-icon>near_me</mat-icon>
+        </button>
+        <!-- <mat-card-actions>
+          <button mat-icon-button (click)="showGym(gym)">
+            <mat-icon>near_me</mat-icon>
+          </button>
+        </mat-card-actions> -->
+      </mat-card>
     </div>
+  </div>
 </div>
