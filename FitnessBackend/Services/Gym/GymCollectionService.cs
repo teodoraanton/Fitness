@@ -12,12 +12,12 @@ namespace FitnessBackend.Services
     {
         private readonly IMongoCollection<Gym> _gyms;
 
-        public GymCollectionService(IMongoDBSettingsGyms settings)
+        public GymCollectionService(IMongoDBSettingsGym settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _gyms = database.GetCollection<Gym>(settings.GymsCollectionName);
+            _gyms = database.GetCollection<Gym>(settings.GymCollectionName);
         }
         public async Task<bool> Create(Gym model)
         {
@@ -51,7 +51,7 @@ namespace FitnessBackend.Services
             return result.ToList();
         }
 
-        public List<Gym> GetGymsByCityName(Guid city)
+        public List<Gym> GetGymsByCityID(Guid city)
         {
             var filter = Builders<Gym>.Filter.Eq(f => f.CityID, city);
             return  _gyms.Find(filter).ToList();

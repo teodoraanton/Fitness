@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Settings
 {
-    public interface IMongoDBSettingsGyms
+    public interface IMongoDBSettings
     {
-        string GymsCollectionName { get; set; }
+        string CityCollectionName { get; set; }
         string ConnectionString { get; set; }
         string DatabaseName { get; set; }
     }

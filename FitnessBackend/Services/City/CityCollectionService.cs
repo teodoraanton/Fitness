@@ -17,7 +17,7 @@ namespace FitnessBackend.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _cities = database.GetCollection<City>(settings.CitiesCollectionName);
+            _cities = database.GetCollection<City>(settings.CityCollectionName);
         }
         public async Task<bool> Create(City model)
         {

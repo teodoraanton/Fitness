@@ -66,8 +66,8 @@ namespace FitnessBackend
             services.Configure<MongoDBSettings>(Configuration.GetSection(nameof(MongoDBSettings)));
             services.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 
-            services.Configure<MongoDBSettingsGyms>(Configuration.GetSection(nameof(MongoDBSettingsGyms)));
-            services.AddSingleton<IMongoDBSettingsGyms>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGyms>>().Value);
+            services.Configure<MongoDBSettingsGym>(Configuration.GetSection(nameof(MongoDBSettingsGym)));
+            services.AddSingleton<IMongoDBSettingsGym>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGym>>().Value);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

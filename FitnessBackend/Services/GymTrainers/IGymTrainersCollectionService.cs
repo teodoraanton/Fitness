@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Services
 {
-    public interface IGymCollectionService: ICollectionService<Gym>
+    public interface IGymTrainersCollectionService: ICollectionService<GymTrainers>
     {
-        List<Gym> GetGymsByCityName(Guid city);
+        GymTrainers GetGymTrainersByGymID(Guid gymID);
     }
 }

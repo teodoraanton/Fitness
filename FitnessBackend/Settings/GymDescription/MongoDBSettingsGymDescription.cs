@@ -1,13 +1,14 @@
-﻿using System;
+﻿using FitnessBackend.Settings.GymDescription;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FitnessBackend.Settings
 {
-    public class MongoDBSettings : IMongoDBSettings
+    public class MongoDBSettingsGymDescription : IMongoDBSettingsGymDescription
     {
-        public string CitiesCollectionName { get; set; }
+        public string GymDescriptionCollectionName { get; set; }
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
