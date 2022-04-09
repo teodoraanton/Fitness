@@ -8,6 +8,6 @@ namespace FitnessBackend.Services
 {
     public interface IGymTrainersCollectionService: ICollectionService<GymTrainers>
     {
-        GymTrainers GetGymTrainersByGymID(Guid gymID);
+        List<GymTrainers> GetGymTrainersByGymID(Guid gymID);
     }
 }

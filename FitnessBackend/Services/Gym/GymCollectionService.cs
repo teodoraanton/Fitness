@@ -51,9 +51,9 @@ namespace FitnessBackend.Services
             return result.ToList();
         }
 
-        public List<Gym> GetGymsByCityID(Guid city)
+        public List<Gym> GetGymsByCityID(Guid cityID)
         {
-            var filter = Builders<Gym>.Filter.Eq(f => f.CityID, city);
+            var filter = Builders<Gym>.Filter.Eq(f => f.CityID, cityID);
             return  _gyms.Find(filter).ToList();
         }
 

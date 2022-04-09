@@ -63,8 +63,8 @@ namespace FitnessBackend
             services.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 
             //gym
-            services.Configure<MongoDBSettingsGymTrainings>(Configuration.GetSection(nameof(MongoDBSettingsGymTrainings)));
-            services.AddSingleton<IMongoDBSettingsGym>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymTrainings>>().Value);
+            services.Configure<MongoDBSettingsGym>(Configuration.GetSection(nameof(MongoDBSettingsGym)));
+            services.AddSingleton<IMongoDBSettingsGym>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGym>>().Value);
 
             //gym-description
             services.Configure<MongoDBSettingsGymDescription>(Configuration.GetSection(nameof(MongoDBSettingsGymDescription)));
@@ -84,7 +84,7 @@ namespace FitnessBackend
 
             //gym-trainings
             services.Configure<MongoDBSettingsGymTrainings>(Configuration.GetSection(nameof(MongoDBSettingsGymTrainings)));
-            services.AddSingleton<IMongoDBSettingsGym>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymTrainings>>().Value);
+            services.AddSingleton<IMongoDBSettingsGymTrainings>(sp => (IMongoDBSettingsGymTrainings)sp.GetRequiredService<IOptions<MongoDBSettingsGymTrainings>>().Value);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

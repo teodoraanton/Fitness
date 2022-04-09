@@ -20,29 +20,53 @@ namespace FitnessBackend.Services
             _gymsDescription = database.GetCollection<GymDescription>(settings.GymDescriptionCollectionName);
         }
 
-        public Task<bool> Create(GymDescription model)
+        public async Task<bool> Create(GymDescription model)
         {
-            throw new NotImplementedException();
+            model.Id = new Guid();
+            await _gymsDescription.InsertOneAsync(model);
+
+            return true;
+        }
+
+        public async Task<bool> Delete(Guid id)
+        {
+            var result = await _gymsDescription.DeleteOneAsync(gymDescription => gymDescription.Id == id);
+            if(!result.IsAcknowledged && result.DeletedCount == 0)
+            {
+                return false;
+            }
+            return true;
         }
 
         public GymDescription GetGymDescriptionByGymID(Guid gymID)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymDescription>.Filter.Eq(f => f.GymID, gymID);
+            return _gymsDescription.Find(filter).FirstOrDefault();
         }
 
-        public Task<bool> Update(GymDescription model, Guid id)
+        public async Task<bool> Update(GymDescription model, Guid id)
         {
-            throw new NotImplementedException();
+            model.Id = id;
+            var result = await _gymsDescription.ReplaceOneAsync(gymDescription => gymDescription.Id == id, model);
+            if (!result.IsAcknowledged && result.ModifiedCount == 0)
+            {
+                await _gymsDescription.InsertOneAsync(model);
+                return false;
+            }
+            return true;
         }
 
-        GymDescription ICollectionService<GymDescription>.Get(Guid id)
+        public GymDescription Get(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymDescription>.Filter.Eq(f => f.Id, id);
+            return _gymsDescription.Find(filter).FirstOrDefault();
         }
 
-        Task<List<GymDescription>> ICollectionService<GymDescription>.GetAll()
+        public async Task<List<GymDescription>> GetAll()
         {
-            throw new NotImplementedException();
+            var result = await _gymsDescription.FindAsync(gymDescription => true);
+
+            return result.ToList();
         }
     }
 }

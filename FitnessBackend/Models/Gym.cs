@@ -16,12 +16,12 @@ namespace FitnessBackend.Models
         [Required]
         public string Address { get; set; }
         [Required]
-        public string gymImagePath { get; set; }
+        public string GymImagePath { get; set; }
         public string Image
         {
             get
             {
-                return ImageHelper.ConvertImageToBase64String(string.Join(string.Empty, this.gymImagePath));
+                return ImageHelper.ConvertImageToBase64String(string.Join(string.Empty, this.GymImagePath));
             }
         }
         [Required]

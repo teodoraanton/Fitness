@@ -19,34 +19,54 @@ namespace FitnessBackend.Services
 
             _gymsPrices = database.GetCollection<GymPrices>(settings.GymPricesCollectionName);
         }
-        public Task<bool> Create(GymPrices model)
+        public async Task<bool> Create(GymPrices model)
         {
-            throw new NotImplementedException();
+            model.Id = new Guid();
+            await _gymsPrices.InsertOneAsync(model);
+
+            return true;
         }
 
-        public Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _gymsPrices.DeleteOneAsync(gymPrices => gymPrices.Id == id);
+            if (!result.IsAcknowledged && result.DeletedCount == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public GymPrices Get(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymPrices>.Filter.Eq(f => f.Id, id);
+            return _gymsPrices.Find(filter).FirstOrDefault();
         }
 
-        public Task<List<GymPrices>> GetAll()
+        public async Task<List<GymPrices>> GetAll()
         {
-            throw new NotImplementedException();
+            var result = await _gymsPrices.FindAsync(gymPrices => true);
+
+            return result.ToList();
         }
 
-        public GymPrices GetGymPricesByGymID(Guid gymID)
+        public List<GymPrices> GetGymPricesByGymID(Guid gymID)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymPrices>.Filter.Eq(f => f.GymID, gymID);
+            return _gymsPrices.Find(filter).ToList();
         }
 
-        public Task<bool> Update(GymPrices model, Guid id)
+        public async Task<bool> Update(GymPrices model, Guid id)
         {
-            throw new NotImplementedException();
+            model.Id = id;
+            var result = await _gymsPrices.ReplaceOneAsync(gymPrices => gymPrices.Id == id, model);
+            if (!result.IsAcknowledged && result.ModifiedCount == 0)
+            {
+                await _gymsPrices.InsertOneAsync(model);
+                return false;
+            }
+            return true;
         }
     }
 }

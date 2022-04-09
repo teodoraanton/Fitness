@@ -19,34 +19,54 @@ namespace FitnessBackend.Services
 
             _gymsTrainers = database.GetCollection<GymTrainers>(settings.GymTrainersCollectionName);
         }
-        public Task<bool> Create(GymTrainers model)
+        public async Task<bool> Create(GymTrainers model)
         {
-            throw new NotImplementedException();
+            model.Id = new Guid();
+            await _gymsTrainers.InsertOneAsync(model);
+
+            return true;
         }
 
-        public Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _gymsTrainers.DeleteOneAsync(gymTrainers => gymTrainers.Id == id);
+            if (!result.IsAcknowledged && result.DeletedCount == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public GymTrainers Get(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymTrainers>.Filter.Eq(f => f.Id, id);
+            return _gymsTrainers.Find(filter).FirstOrDefault();
         }
 
-        public Task<List<GymTrainers>> GetAll()
+        public async Task<List<GymTrainers>> GetAll()
         {
-            throw new NotImplementedException();
+            var result = await _gymsTrainers.FindAsync(gymTrainers => true);
+
+            return result.ToList();
         }
 
-        public GymTrainers GetGymTrainersByGymID(Guid gymID)
+        public List<GymTrainers> GetGymTrainersByGymID(Guid gymID)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymTrainers>.Filter.Eq(f => f.GymID, gymID);
+            return _gymsTrainers.Find(filter).ToList();
         }
 
-        public Task<bool> Update(GymTrainers model, Guid id)
+        public async Task<bool> Update(GymTrainers model, Guid id)
         {
-            throw new NotImplementedException();
+            model.Id = id;
+            var result = await _gymsTrainers.ReplaceOneAsync(gymTrainers => gymTrainers.Id == id, model);
+            if (!result.IsAcknowledged && result.ModifiedCount == 0)
+            {
+                await _gymsTrainers.InsertOneAsync(model);
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -20,34 +20,54 @@ namespace FitnessBackend.Services
             _gymsSchedule = database.GetCollection<GymSchedule>(settings.GymScheduleCollectionName);
         }
 
-        public Task<bool> Create(GymSchedule model)
+        public async Task<bool> Create(GymSchedule model)
         {
-            throw new NotImplementedException();
+            model.Id = new Guid();
+            await _gymsSchedule.InsertOneAsync(model);
+
+            return true;
         }
 
-        public Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _gymsSchedule.DeleteOneAsync(gymSchedule => gymSchedule.Id == id);
+            if (!result.IsAcknowledged && result.DeletedCount == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public GymSchedule Get(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymSchedule>.Filter.Eq(f => f.Id, id);
+            return _gymsSchedule.Find(filter).FirstOrDefault();
         }
 
-        public Task<List<GymSchedule>> GetAll()
+        public async Task<List<GymSchedule>> GetAll()
         {
-            throw new NotImplementedException();
+            var result = await _gymsSchedule.FindAsync(gymSchedule => true);
+
+            return result.ToList();
         }
 
-        public GymSchedule GetGymScheduleByGymID(Guid gymID)
+        public List<GymSchedule> GetGymScheduleByGymID(Guid gymID)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GymSchedule>.Filter.Eq(f => f.GymID, gymID);
+            return _gymsSchedule.Find(filter).ToList();
         }
 
-        public Task<bool> Update(GymSchedule model, Guid id)
+        public async Task<bool> Update(GymSchedule model, Guid id)
         {
-            throw new NotImplementedException();
+            model.Id = id;
+            var result = await _gymsSchedule.ReplaceOneAsync(gymSchedule => gymSchedule.Id == id, model);
+            if (!result.IsAcknowledged && result.ModifiedCount == 0)
+            {
+                await _gymsSchedule.InsertOneAsync(model);
+                return false;
+            }
+            return true;
         }
     }
 }

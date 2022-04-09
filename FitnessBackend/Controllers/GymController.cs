@@ -30,8 +30,6 @@ namespace FitnessBackend.Controllers
             return Ok(gyms);
         }
 
-
-
         /// <summary>
         ///     Add a new gym in list
         /// </summary>
@@ -57,7 +55,7 @@ namespace FitnessBackend.Controllers
         /// <param name="cityID"></param>
         /// <returns></returns>
         [HttpGet("CityID/{cityID}")]
-        public IActionResult GetByCityName(Guid cityID)
+        public IActionResult GetGymByCityID(Guid cityID)
         {
             List<Gym> gyms = _gymsCollectionService.GetGymsByCityID(cityID);
             if (gyms == null)

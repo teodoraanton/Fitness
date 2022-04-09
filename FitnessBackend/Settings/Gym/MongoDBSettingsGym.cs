@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FitnessBackend.Settings
 {
-    public class MongoDBSettingsGymTrainings : IMongoDBSettingsGym
+    public class MongoDBSettingsGym : IMongoDBSettingsGym
     {
         public string GymCollectionName { get; set; }
         public string ConnectionString { get; set; }
