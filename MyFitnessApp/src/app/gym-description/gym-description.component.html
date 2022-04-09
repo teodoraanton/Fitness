@@ -1,1 +1,18 @@
-<p>{{gymId}}</p>
+<div class="description-section">
+  <mat-grid-list cols="1" rowHeight="10:1">
+    <mat-grid-tile>
+      <p class="about-par">{{ gymDescription.description }}</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <div
+      class="gym-div"
+      *ngFor="let photo of gymDescription.interiorImagesPath"
+    >
+      <mat-grid-tile>
+        <img class="image-logo" src="../../assets/images/{{ photo }}" />
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>

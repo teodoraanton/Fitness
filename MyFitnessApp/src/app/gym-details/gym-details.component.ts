@@ -18,7 +18,6 @@ export class GymDetailsComponent implements OnInit {
     gymImagePath: "",
     city: ""
   };
-  days: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -33,9 +32,7 @@ export class GymDetailsComponent implements OnInit {
       this.gymService.getGymById(this.gymId).subscribe(gym => {
         this.gym = gym;
       })
-    }),
-    
-    console.log(this.gymId)
+    });
   }
 
 }

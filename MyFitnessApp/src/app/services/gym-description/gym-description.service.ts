@@ -19,7 +19,7 @@ export class GymDescriptionService {
 
     getGymDescriptionByGymID(gymID: String){
       return this.httpClient.get<GymDescription>(
-        this.baseUrl + '/GymDescription/description/gymID/' + gymID,
+        this.baseUrl + '/GymDescription/description/' + gymID,
         this.httpOptions
       );
     }

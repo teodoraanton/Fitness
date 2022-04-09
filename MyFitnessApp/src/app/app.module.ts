@@ -24,13 +24,16 @@ import { GymPricesService } from './services/gym-prices/gym-prices.service';
 import { GymScheduleService } from './services/gym-schedule/gym-schedule.service';
 import { GymTrainersService } from './services/gym-trainers/gym-trainers.service';
 import { GymTrainingsService } from './services/gym-trainings/gym-trainings.service';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { GymPricesComponent } from './gym-prices/gym-prices.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GymDetailsComponent,
-    GymDescriptionComponent
+    GymDescriptionComponent,
+    GymPricesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { GymTrainingsService } from './services/gym-trainings/gym-trainings.serv
     MatCardModule,
     HttpClientModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule
   ],
   providers: [
     CityService,

@@ -12,7 +12,15 @@
       </mat-expansion-panel-header>
 
       <app-gym-description [gymId]="gymId"></app-gym-description>
+    </mat-expansion-panel>
 
+    <!-- PRICES -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Prices </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <app-gym-prices [gymId]="gymId"></app-gym-prices>
     </mat-expansion-panel>
 
     <!-- SCHEDULE -->
@@ -26,24 +34,13 @@
       <button class="button" mat-raised-button color="primary">Book NOW</button>
     </mat-expansion-panel>
 
-    <!-- PRICES -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> Prices </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <!-- <app-gym-prices [gymId]="gymId"></app-gym-prices> -->
-      
-    </mat-expansion-panel>
-
     <!-- TRAININGS -->
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title> Training </mat-panel-title>
       </mat-expansion-panel-header>
-      
-      <!-- <app-gym-trainings [gymId]="gymId"></app-gym-trainings> -->
 
+      <!-- <app-gym-trainings [gymId]="gymId"></app-gym-trainings> -->
     </mat-expansion-panel>
 
     <!-- TRAINERS -->
@@ -51,9 +48,8 @@
       <mat-expansion-panel-header>
         <mat-panel-title> Trainers </mat-panel-title>
       </mat-expansion-panel-header>
-      
-      <!-- <app-gym-trainers [gymId]="gymId"></app-gym-trainers> -->
 
+      <!-- <app-gym-trainers [gymId]="gymId"></app-gym-trainers> -->
     </mat-expansion-panel>
   </mat-accordion>
 </form>
