@@ -9,34 +9,19 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title> About... </mat-panel-title>
-        <!-- <mat-panel-description>
-          Here are details about the gym
-        </mat-panel-description> -->
       </mat-expansion-panel-header>
-      <app-gym-description></app-gym-description>
+
+      <app-gym-description [gymId]="gymId"></app-gym-description>
+
     </mat-expansion-panel>
 
     <!-- SCHEDULE -->
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title> Schedule </mat-panel-title>
-        <!-- <mat-panel-description>
-          Here is the schedule of the gym
-        </mat-panel-description> -->
       </mat-expansion-panel-header>
 
-      <!-- MAT-CARD for days and every mat-card will have his schedule with checkbox -->
-      <!-- <span class="example-list-section">
-        <ul>
-          <li *ngFor="let day of days.subtasks">
-            <mat-checkbox [(ngModel)]="subtask.completed"
-                          [color]="subtask.color"
-                          (ngModelChange)="updateAllComplete()">
-              {{subtask.name}}
-            </mat-checkbox>
-          </li>
-        </ul>
-      </span> -->
+      <!-- <app-gym-schedule [gymId]="gymId"></app-gym-schedule> -->
 
       <button class="button" mat-raised-button color="primary">Book NOW</button>
     </mat-expansion-panel>
@@ -45,33 +30,30 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title> Prices </mat-panel-title>
-        <!-- <mat-panel-description>
-          Here you cand find the prices
-        </mat-panel-description> -->
       </mat-expansion-panel-header>
-      <p>This is the prices section of the panel.</p>
+
+      <!-- <app-gym-prices [gymId]="gymId"></app-gym-prices> -->
+      
     </mat-expansion-panel>
 
     <!-- TRAININGS -->
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title> Training </mat-panel-title>
-        <!-- <mat-panel-description>
-          Here you can find out about the trainings
-        </mat-panel-description> -->
       </mat-expansion-panel-header>
-      <p>This is the training content.</p>
+      
+      <!-- <app-gym-trainings [gymId]="gymId"></app-gym-trainings> -->
+
     </mat-expansion-panel>
 
     <!-- TRAINERS -->
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title> Trainers </mat-panel-title>
-        <!-- <mat-panel-description>
-          Here you can find out about the trainers
-        </mat-panel-description> -->
       </mat-expansion-panel-header>
-      <p>This is the trainers section of the panel.</p>
+      
+      <!-- <app-gym-trainers [gymId]="gymId"></app-gym-trainers> -->
+
     </mat-expansion-panel>
   </mat-accordion>
 </form>
