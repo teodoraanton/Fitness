@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Gym } from '../models/gym';
+import { Gym } from '../../models/gym';
 
 @Injectable()
 export class GymService {

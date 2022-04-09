@@ -12,18 +12,25 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import { CityService } from './services/city.service';
-import { GymService } from './services/gym.service';
+import { CityService } from './services/city/city.service';
+import { GymService } from './services/gym/gym.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GymDetailsComponent } from './gym-details/gym-details.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
+import { GymDescriptionComponent } from './gym-description/gym-description.component';
+import { GymDescriptionService } from './services/gym-description/gym-description.service';
+import { GymPricesService } from './services/gym-prices/gym-prices.service';
+import { GymScheduleService } from './services/gym-schedule/gym-schedule.service';
+import { GymTrainersService } from './services/gym-trainers/gym-trainers.service';
+import { GymTrainingsService } from './services/gym-trainings/gym-trainings.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    GymDetailsComponent
+    GymDetailsComponent,
+    GymDescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,12 @@ import {MatTableModule} from '@angular/material/table';
   ],
   providers: [
     CityService,
-    GymService
+    GymService,
+    GymDescriptionService,
+    GymPricesService,
+    GymScheduleService,
+    GymTrainersService,
+    GymTrainingsService
   ],
   bootstrap: [AppComponent]
 })

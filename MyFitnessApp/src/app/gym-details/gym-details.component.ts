@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Gym } from '../models/gym';
-import { CityService } from '../services/city.service';
-import { GymService } from '../services/gym.service';
+import { CityService } from '../services/city/city.service';
+import { GymService } from '../services/gym/gym.service';
 
 @Component({
   selector: 'app-gym-details',

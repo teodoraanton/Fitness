@@ -1,7 +1,7 @@
 <form class="expansion-panel">
   <div class="header-page">
     <p>FIND ABOUT YOUR FAVORITE GYM</p>
-    <img src="../../assets/images/{{ gym.gymImagePath }}" />
+    <img class="image-logo" src="../../assets/images/{{ gym.gymImagePath }}" />
   </div>
 
   <mat-accordion>
@@ -13,7 +13,7 @@
           Here are details about the gym
         </mat-panel-description> -->
       </mat-expansion-panel-header>
-      <p>This is the details section of the panel.</p>
+      <app-gym-description></app-gym-description>
     </mat-expansion-panel>
 
     <!-- SCHEDULE -->

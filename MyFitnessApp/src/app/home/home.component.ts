@@ -3,8 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { City } from '../models/city';
 import { Gym } from '../models/gym';
-import { CityService } from '../services/city.service';
-import { GymService } from '../services/gym.service';
+import { CityService } from '../services/city/city.service';
+import { GymService } from '../services/gym/gym.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
