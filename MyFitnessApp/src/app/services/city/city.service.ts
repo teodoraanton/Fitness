@@ -21,4 +21,11 @@ export class CityService {
       this.httpOptions
     );
   }
+
+  getCityByID(id: string){
+    return this.httpClient.get<City>(
+      this.baseUrl + '/City/' + id,
+      this.httpOptions
+    );
+  }
 }

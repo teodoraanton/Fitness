@@ -1,1 +1,24 @@
-<p>gym-prices works!</p>
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Subscription Type Column -->
+    <ng-container matColumnDef="subscriptionType">
+      <th mat-header-cell *matHeaderCellDef>Subscription Type</th>
+      <td mat-cell *matCellDef="let element">{{ element.subscriptionType }}</td>
+    </ng-container>
+
+    <!-- Duration Column -->
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef>Duration</th>
+      <td mat-cell *matCellDef="let element">{{ element.duration }}</td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price/month</th>
+      <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

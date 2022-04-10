@@ -13,6 +13,9 @@ export class GymPricesComponent implements OnInit {
 
   @Input() gymId: string = '';
 
+  displayedColumns: string[] = ['subscriptionType', 'duration', 'price'];
+  dataSource : GymPrices[] = [];
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private gymPricesService: GymPricesService
@@ -23,6 +26,7 @@ export class GymPricesComponent implements OnInit {
       .getGymPricesByGymID(this.gymId)
       .subscribe((gymPrices) => {
         this.gymPrices = gymPrices;
+        this.dataSource = gymPrices;
       });
   }
 }

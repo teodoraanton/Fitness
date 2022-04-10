@@ -15,6 +15,8 @@ namespace FitnessBackend.Models
         [Required]
         public string SubscriptionType { get; set; }
         [Required]
+        public string Duration { get; set; }
+        [Required]
         public Guid GymID { get; set; }
     }
 }
