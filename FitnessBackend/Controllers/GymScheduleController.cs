@@ -66,6 +66,23 @@ namespace FitnessBackend.Controllers
         }
 
         /// <summary>
+        ///     Return teh list of gym schedule with the specified gym id and day
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="day"></param>
+        /// <returns></returns>
+        [HttpGet("schedule-day/{day}&&{id}")]
+        public async Task<IActionResult> GetByDay(Guid id, string day)
+        {
+            List<GymSchedule> gymSchedules = await _gymScheduleCollectionService.GetGymScheduleByGymIDAndDay(id, day);
+            if (gymSchedules == null)
+            {
+                return NotFound();
+            }
+            return Ok(gymSchedules);
+        }
+
+        /// <summary>
         ///     Return the gym schedule with the specified id
         /// </summary>
         /// <param name="id"></param>

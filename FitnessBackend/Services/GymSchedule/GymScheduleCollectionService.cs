@@ -58,6 +58,13 @@ namespace FitnessBackend.Services
             return _gymsSchedule.Find(filter).ToList();
         }
 
+        public async Task<List<GymSchedule>> GetGymScheduleByGymIDAndDay(Guid gymID, String day)
+        {
+            var result = await _gymsSchedule.FindAsync(gymSchedule => gymSchedule.GymID == gymID && gymSchedule.Day == day);
+
+            return result.ToList();
+        }
+
         public async Task<bool> Update(GymSchedule model, Guid id)
         {
             model.Id = id;

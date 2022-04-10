@@ -54,6 +54,7 @@ namespace FitnessBackend
             services.AddTransient<IGymCollectionService, GymCollectionService>();            
             services.AddTransient<IGymDescriptionCollectionService, GymDescriptionCollectionService>();
             services.AddTransient<IGymPricesCollectionService, GymPricesCollectionService>();
+            services.AddTransient<IGymOpenHoursCollectionService, GymOpenHoursCollectionService>();
             services.AddTransient<IGymScheduleCollectionService, GymScheduleCollectionService>();
             services.AddTransient<IGymTrainersCollectionService, GymTrainersCollectionService>();
             services.AddTransient<IGymTrainingsCollectionService, GymTrainingsCollectionService>();
@@ -73,6 +74,10 @@ namespace FitnessBackend
             //gym-prices
             services.Configure<MongoDBSettingsGymPrices>(Configuration.GetSection(nameof(MongoDBSettingsGymPrices)));
             services.AddSingleton<IMongoDBSettingsGymPrices>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymPrices>>().Value);
+
+            //gym-open-hours
+            services.Configure<MongoDBSettingsGymOpenHours>(Configuration.GetSection(nameof(MongoDBSettingsGymOpenHours)));
+            services.AddSingleton<IMongoDBSettingsGymOpenHours>(sp => sp.GetRequiredService<IOptions<MongoDBSettingsGymOpenHours>>().Value);
 
             //gym-schedule
             services.Configure<MongoDBSettingsGymSchedule>(Configuration.GetSection(nameof(MongoDBSettingsGymSchedule)));

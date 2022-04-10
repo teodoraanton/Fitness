@@ -9,5 +9,6 @@ namespace FitnessBackend.Services
     public interface IGymScheduleCollectionService: ICollectionService<GymSchedule>
     {
         List<GymSchedule> GetGymScheduleByGymID(Guid gymID);
+        Task<List<GymSchedule>> GetGymScheduleByGymIDAndDay(Guid gymID, String day);
     }
 }

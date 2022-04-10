@@ -123,6 +123,48 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:FitnessBackend.Controllers.GymOpenHoursController.GetGymsOpenHours">
+            <summary>
+                Return the list of gyms open hours
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymOpenHoursController.CreateGymOpenHour(FitnessBackend.Models.GymOpenHours)">
+            <summary>
+                Add a new gym open hour in list
+            </summary>
+            <param name="gymOpenHour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymOpenHoursController.GetByGymID(System.Guid)">
+            <summary>
+                Return on another route a gym open hours with a specified gym id
+            </summary>
+            <param name="gymID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymOpenHoursController.GetByGymPriceId(System.Guid)">
+            <summary>
+                Return the gym open hour  with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymOpenHoursController.UpdateGymOpenHour(System.Guid,FitnessBackend.Models.GymOpenHours)">
+            <summary>
+                 Return the list of gym open hours with a gym open hour updated
+            </summary>
+            <param name="id"></param>
+            <param name="gymOpenHourToUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymOpenHoursController.DeleteGymOpenHour(System.Guid)">
+            <summary>
+                Delete a gym open hour with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:FitnessBackend.Controllers.GymPricesController.GetGymsPrices">
             <summary>
                 Return the list of gyms prices
@@ -183,6 +225,14 @@
                 Return on another route a gym schedule with a specified gym id
             </summary>
             <param name="gymID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.GymScheduleController.GetByDay(System.Guid,System.String)">
+            <summary>
+                Return teh list of gym schedule with the specified gym id and day
+            </summary>
+            <param name="id"></param>
+            <param name="day"></param>
             <returns></returns>
         </member>
         <member name="M:FitnessBackend.Controllers.GymScheduleController.GetByGymScheduleId(System.Guid)">
