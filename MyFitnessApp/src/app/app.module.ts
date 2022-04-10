@@ -17,15 +17,19 @@ import { GymService } from './services/gym/gym.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GymDetailsComponent } from './gym-details/gym-details.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule} from '@angular/material/table';
 import { GymDescriptionComponent } from './gym-description/gym-description.component';
 import { GymDescriptionService } from './services/gym-description/gym-description.service';
 import { GymPricesService } from './services/gym-prices/gym-prices.service';
 import { GymScheduleService } from './services/gym-schedule/gym-schedule.service';
 import { GymTrainersService } from './services/gym-trainers/gym-trainers.service';
 import { GymTrainingsService } from './services/gym-trainings/gym-trainings.service';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { GymPricesComponent } from './gym-prices/gym-prices.component';
+import { GymScheduleComponent } from './gym-schedule/gym-schedule.component';
+import { GymOpenHoursService } from './services/gym-open-hours/gym-open-hours.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { GymPricesComponent } from './gym-prices/gym-prices.component';
     HomeComponent,
     GymDetailsComponent,
     GymDescriptionComponent,
-    GymPricesComponent
+    GymPricesComponent,
+    GymScheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -50,13 +55,16 @@ import { GymPricesComponent } from './gym-prices/gym-prices.component';
     HttpClientModule,
     MatExpansionModule,
     MatTableModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTabsModule,
+    MatListModule
   ],
   providers: [
     CityService,
     GymService,
     GymDescriptionService,
     GymPricesService,
+    GymOpenHoursService,
     GymScheduleService,
     GymTrainersService,
     GymTrainingsService

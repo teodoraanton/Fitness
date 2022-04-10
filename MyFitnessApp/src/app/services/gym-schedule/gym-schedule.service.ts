@@ -23,4 +23,11 @@ export class GymScheduleService {
         this.httpOptions
       );
     }
+
+    getGymScheduleByGymIdAndDay(gymID: string, day: string){
+      return this.httpClient.get<GymSchedule[]>(
+        this.baseUrl + "/GymSchedule/schedule-day/" + day + "&&" + gymID,
+        this.httpOptions
+      )
+    }
 }
