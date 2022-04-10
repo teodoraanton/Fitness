@@ -19,7 +19,6 @@ export class GymDescriptionComponent implements OnInit {
   @Input() gymId: string = '';
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
     private gymDescriptionService: GymDescriptionService
   ) {}
 

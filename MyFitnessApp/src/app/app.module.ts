@@ -30,6 +30,9 @@ import { GymScheduleComponent } from './gym-schedule/gym-schedule.component';
 import { GymOpenHoursService } from './services/gym-open-hours/gym-open-hours.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
+import { GymTrainingsComponent } from './gym-trainings/gym-trainings.component';
+import { GymTrainersComponent } from './gym-trainers/gym-trainers.component';
+import { ReserveNowComponent } from './reserve-now/reserve-now.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { MatListModule } from '@angular/material/list';
     GymDetailsComponent,
     GymDescriptionComponent,
     GymPricesComponent,
-    GymScheduleComponent
+    GymScheduleComponent,
+    GymTrainingsComponent,
+    GymTrainersComponent,
+    ReserveNowComponent
   ],
   imports: [
     BrowserModule,

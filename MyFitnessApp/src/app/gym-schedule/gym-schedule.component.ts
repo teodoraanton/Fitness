@@ -1,6 +1,6 @@
 import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GymOpenHours } from '../models/gymOpenHours';
 import { GymSchedule } from '../models/gymSchedule';
 import { GymOpenHoursService } from '../services/gym-open-hours/gym-open-hours.service';
@@ -27,7 +27,7 @@ export class GymScheduleComponent implements OnInit {
   @Input() gymId: string = '';
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
+    private router: Router,
     private gymScheduleService: GymScheduleService,
     private gymOpenHoursService: GymOpenHoursService
   ) { }
@@ -56,6 +56,12 @@ export class GymScheduleComponent implements OnInit {
     });
     this.gymOpenHoursService.getGymOpenHoursByGymID(this.gymId).subscribe((gymOpenHours) => {
       this.gymOpenHours = gymOpenHours;
+    });
+  }
+
+  reserveNow(){
+    this.router.navigate(['/reserve-now'], {
+      queryParams: { gymID: this.gymId },
     });
   }
 

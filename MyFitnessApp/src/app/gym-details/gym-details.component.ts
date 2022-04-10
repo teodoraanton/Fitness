@@ -21,8 +21,7 @@ export class GymDetailsComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private gymService: GymService,
-    private cityService: CityService
+    private gymService: GymService
   ) { }
 
   ngOnInit(): void {
