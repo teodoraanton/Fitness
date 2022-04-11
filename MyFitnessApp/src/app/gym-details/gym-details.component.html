@@ -1,53 +1,49 @@
 <form class="expansion-panel">
-  <div class="header-page">
-    <p>FIND ABOUT YOUR FAVORITE GYM</p>
-    <img class="image-logo" src="../../assets/images/{{ gym.gymImagePath }}" />
-  </div>
+  <p>
+    <mat-toolbar color="primary">
+      <img
+        class="image-logo"
+        src="../../assets/images/{{ gym.gymImagePath }}"
+      />
 
-  <mat-accordion>
+      <span class="example-spacer"></span>
+
+      <mat-icon>grade</mat-icon>
+      <span class="gym-name">{{ gym.name }}</span>
+      <mat-icon>grade</mat-icon>
+
+      <span class="example-spacer"></span>
+
+      <button mat-icon-button >
+        <mat-icon class="exit-btn">exit_to_app</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+
+  <mat-tab-group>
     <!-- GYM DETAILS -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> About... </mat-panel-title>
-      </mat-expansion-panel-header>
-
+    <mat-tab label="ABOUT">
       <app-gym-description [gymId]="gymId"></app-gym-description>
-    </mat-expansion-panel>
+    </mat-tab>
 
-    <!-- PRICES -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> Prices </mat-panel-title>
-      </mat-expansion-panel-header>
-
+    <!-- GYM PRICES -->
+    <mat-tab label="PRICES">
       <app-gym-prices [gymId]="gymId"></app-gym-prices>
-    </mat-expansion-panel>
+    </mat-tab>
 
-    <!-- SCHEDULE -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> Schedule </mat-panel-title>
-      </mat-expansion-panel-header>
-
+    <!-- GYM SCEHDULE -->
+    <mat-tab label="SCEHDULE">
       <app-gym-schedule [gymId]="gymId"></app-gym-schedule>
-    </mat-expansion-panel>
+    </mat-tab>
 
-    <!-- TRAININGS -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> Trainings </mat-panel-title>
-      </mat-expansion-panel-header>
-
+    <!-- GYM TRAININGS -->
+    <mat-tab label="TRAININGS">
       <app-gym-trainings [gymId]="gymId"></app-gym-trainings>
-    </mat-expansion-panel>
+    </mat-tab>
 
-    <!-- TRAINERS -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> Trainers </mat-panel-title>
-      </mat-expansion-panel-header>
-
+    <!-- GYM TRAINERS -->
+    <mat-tab label="TRAINERS">
       <app-gym-trainers [gymId]="gymId"></app-gym-trainers>
-    </mat-expansion-panel>
-  </mat-accordion>
+    </mat-tab>
+  </mat-tab-group>
 </form>

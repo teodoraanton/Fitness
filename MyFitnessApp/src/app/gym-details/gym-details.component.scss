@@ -1,42 +1,46 @@
-.mat-expansion-panel{
-    background-color: rgba(204, 255, 195, 0.3);
+.image-logo{
+    // width: 400px;
+    // height: 250px;
+    width: 200px;
+    height: 100px;
+}
+
+.mat-toolbar{
+    height: 110px;
+}
+
+.toolbar{
+    display: flex;
+    justify-content:center;
+}
+
+::ng-deep .mat-tab-label{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+::ng-deep .mat-tab-group{
+    display: flex;
+    justify-content: center;
+}
+
+.exit-btn{
+    display: flex;
+    justify-content: flex-end;
+
+    height:48px !important;
+    width:48px !important;
+    font-size:48px !important;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
 }
 
 .gym-name{
-    text-align: center;
     font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-    font-weight: bold;
-    color: brown;
-}
-
-.mat-expansion-panel-header{
-    font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-style: italic;
-    font-size: 25px;
-    display: flex;
-    align-self: center;
-}
-
-.header-page {
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-    font-weight: bold;
-    color: brown;
-    margin-top: 25px;
-    // background-color: rgba(204, 255, 195, 0.3);
-}
-
-.expansion-panel{
-    //background-color: rgba(204, 255, 195, 0.3);
-    height: 1000px;
-}
-
-.image-logo{
-    width: 400px;
-    height: 250px;
 }

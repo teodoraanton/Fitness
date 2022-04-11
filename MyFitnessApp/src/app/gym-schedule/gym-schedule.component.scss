@@ -4,9 +4,13 @@
     font-weight: bold;
 }
 
+
+::ng-deep .mat-tab-label{
+    background-color: rgba(43, 61, 255, 0.3);
+}
+
 .mat-table{
     width: 100%;
-    background-color: rgba(132, 255, 116, 0.3);
 }
 
 .mat-column-timeSlot{

@@ -33,6 +33,7 @@ import { MatListModule } from '@angular/material/list';
 import { GymTrainingsComponent } from './gym-trainings/gym-trainings.component';
 import { GymTrainersComponent } from './gym-trainers/gym-trainers.component';
 import { ReserveNowComponent } from './reserve-now/reserve-now.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ReserveNowComponent } from './reserve-now/reserve-now.component';
     MatTableModule,
     MatGridListModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    MatToolbarModule
   ],
   providers: [
     CityService,
