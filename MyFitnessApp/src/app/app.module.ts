@@ -11,12 +11,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
 import { MatCardModule } from '@angular/material/card';
 import { CityService } from './services/city/city.service';
 import { GymService } from './services/gym/gym.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GymDetailsComponent } from './gym-details/gym-details.component';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule} from '@angular/material/table';
 import { GymDescriptionComponent } from './gym-description/gym-description.component';
 import { GymDescriptionService } from './services/gym-description/gym-description.service';
@@ -34,6 +34,7 @@ import { GymTrainingsComponent } from './gym-trainings/gym-trainings.component';
 import { GymTrainersComponent } from './gym-trainers/gym-trainers.component';
 import { ReserveNowComponent } from './reserve-now/reserve-now.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -60,12 +61,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatFormFieldModule,
     MatCardModule,
     HttpClientModule,
-    MatExpansionModule,
     MatTableModule,
     MatGridListModule,
     MatTabsModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [
     CityService,

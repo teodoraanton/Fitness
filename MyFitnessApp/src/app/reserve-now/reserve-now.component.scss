@@ -1,0 +1,44 @@
+.form-reserve-now{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: auto; 
+    width: 1280px;
+    height: 525px;
+    background-color: rgba(127, 232, 255, 0.3);
+}
+
+.button {
+    display: block;
+    margin: 10px 90px 10px 0;
+    width: 120px;
+    display: flex;
+}
+
+.mat-form-field{
+    width: 400px;
+}
+
+.title{
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(27, 153, 40);
+}
+
+.mat-toolbar{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.toolbar-reserve-now{
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+}

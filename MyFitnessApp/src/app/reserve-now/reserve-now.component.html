@@ -1,1 +1,53 @@
-<p>reserve-now works!</p>
+<p>
+    <mat-toolbar color="primary">
+      <span class="toolbar-reserve-now">RESERVE NOW</span>
+    </mat-toolbar>
+</p>
+<div class="form-reserve-now">
+  <!-- <h1 class="title"></h1>
+  <br><br><br><br> -->
+  <form class="note-details-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        name="name"
+        placeholder="What is your name?"
+        required="true"
+      /> 
+      </mat-form-field>
+      <br/>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label><br />
+      <input
+        matInput
+        name="email"
+        placeholder="What is your email?"
+        required="true"
+      />
+      </mat-form-field>
+      <br/>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose the day:</mat-label>
+      <mat-select required="true">
+        <!-- <mat-option *ngFor="let cat of categories" [value]="cat" >
+            {{cat.value}}
+          </mat-option> -->
+      </mat-select>
+    </mat-form-field><br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose the training:</mat-label>
+      <mat-select required="true">
+        <!-- <mat-option *ngFor="let cat of categories" [value]="cat" >
+            {{cat.value}}
+          </mat-option> -->
+      </mat-select>
+    </mat-form-field><br>
+
+    <button mat-raised-button color="warn">CLOSE</button>
+    <button mat-raised-button color="primary">SAVE</button>
+  </form>
+</div>

@@ -18,6 +18,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     font-weight: bold;
+    width: 100%;
 }
 
 ::ng-deep .mat-tab-group{
@@ -29,9 +30,9 @@
     display: flex;
     justify-content: flex-end;
 
-    height:48px !important;
-    width:48px !important;
-    font-size:48px !important;
+    height:35px !important;
+    width:35px !important;
+    font-size:35px !important;
 }
 
 .example-spacer {
