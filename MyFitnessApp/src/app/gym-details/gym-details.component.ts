@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Gym } from '../models/gym';
 import { CityService } from '../services/city/city.service';
 import { GymService } from '../services/gym/gym.service';
@@ -21,6 +21,7 @@ export class GymDetailsComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
+    private router: Router,
     private gymService: GymService
   ) { }
 
@@ -32,6 +33,10 @@ export class GymDetailsComponent implements OnInit {
         this.gym = gym;
       })
     });
+  }
+
+  backHomePage(){
+    this.router.navigate([''], {});
   }
 
 }

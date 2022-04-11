@@ -8,191 +8,227 @@
   </div>
 
   <mat-tab-group>
-    <mat-tab label="Monday">
-      <div>
-        <table
-          mat-table
-          [dataSource]="gymScheduleMonday"
-          class="mat-elevation-z8"
-        >
-          <!-- Time Slot Column -->
-          <ng-container matColumnDef="timeSlot">
-            <th mat-header-cell *matHeaderCellDef>Time Slot</th>
-            <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
-          </ng-container>
+    <!-- MONDAY -->
+    <div *ngIf="gymScheduleMonday != []; else elseBlock">
+      <mat-tab label="Monday">
+        <div>
+          <table
+            mat-table
+            [dataSource]="gymScheduleMonday"
+            class="mat-elevation-z8"
+          >
+            <!-- Time Slot Column -->
+            <ng-container matColumnDef="timeSlot">
+              <th mat-header-cell *matHeaderCellDef>Time Slot</th>
+              <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
+            </ng-container>
 
-          <!-- Training Column -->
-          <ng-container matColumnDef="training">
-            <th mat-header-cell *matHeaderCellDef>Training</th>
-            <td mat-cell *matCellDef="let element">{{ element.training }}</td>
-          </ng-container>
+            <!-- Training Column -->
+            <ng-container matColumnDef="training">
+              <th mat-header-cell *matHeaderCellDef>Training</th>
+              <td mat-cell *matCellDef="let element">{{ element.training }}</td>
+            </ng-container>
 
-          <!-- Trainer Column -->
-          <ng-container matColumnDef="trainer">
-            <th mat-header-cell *matHeaderCellDef>Trainer</th>
-            <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
-          </ng-container>
+            <!-- Trainer Column -->
+            <ng-container matColumnDef="trainer">
+              <th mat-header-cell *matHeaderCellDef>Trainer</th>
+              <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-      </div>
-    </mat-tab>
-    <mat-tab label="Tuesday">
-      <div>
-        <table
-          mat-table
-          [dataSource]="gymScheduleTuesday"
-          class="mat-elevation-z8"
-        >
-          <!-- Time Slot Column -->
-          <ng-container matColumnDef="timeSlot">
-            <th mat-header-cell *matHeaderCellDef>Time Slot</th>
-            <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
-          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-tab>
+    </div>
+    <!-- <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
 
-          <!-- Training Column -->
-          <ng-container matColumnDef="training">
-            <th mat-header-cell *matHeaderCellDef>Training</th>
-            <td mat-cell *matCellDef="let element">{{ element.training }}</td>
-          </ng-container>
+    <!-- TUESDAY -->
+    <div *ngIf="gymScheduleTuesday != []; else elseBlock">
+      <mat-tab label="Tuesday">
+        <div>
+          <table
+            mat-table
+            [dataSource]="gymScheduleTuesday"
+            class="mat-elevation-z8"
+          >
+            <!-- Time Slot Column -->
+            <ng-container matColumnDef="timeSlot">
+              <th mat-header-cell *matHeaderCellDef>Time Slot</th>
+              <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
+            </ng-container>
 
-          <!-- Trainer Column -->
-          <ng-container matColumnDef="trainer">
-            <th mat-header-cell *matHeaderCellDef>Trainer</th>
-            <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
-          </ng-container>
+            <!-- Training Column -->
+            <ng-container matColumnDef="training">
+              <th mat-header-cell *matHeaderCellDef>Training</th>
+              <td mat-cell *matCellDef="let element">{{ element.training }}</td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-      </div>
-    </mat-tab>
-    <mat-tab label="Wednesday">
-      <div>
-        <table
-          mat-table
-          [dataSource]="gymScheduleWednesday"
-          class="mat-elevation-z8"
-        >
-          <!-- Time Slot Column -->
-          <ng-container matColumnDef="timeSlot">
-            <th mat-header-cell *matHeaderCellDef>Time Slot</th>
-            <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
-          </ng-container>
+            <!-- Trainer Column -->
+            <ng-container matColumnDef="trainer">
+              <th mat-header-cell *matHeaderCellDef>Trainer</th>
+              <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
+            </ng-container>
 
-          <!-- Training Column -->
-          <ng-container matColumnDef="training">
-            <th mat-header-cell *matHeaderCellDef>Training</th>
-            <td mat-cell *matCellDef="let element">{{ element.training }}</td>
-          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-tab>
+    </div>
+    <!-- <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
 
-          <!-- Trainer Column -->
-          <ng-container matColumnDef="trainer">
-            <th mat-header-cell *matHeaderCellDef>Trainer</th>
-            <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
-          </ng-container>
+    <!-- WEDNESDAY -->
+    <div *ngIf="gymScheduleWednesday != []; else elseBlock">
+      <mat-tab label="Wednesday">
+        <div>
+          <table
+            mat-table
+            [dataSource]="gymScheduleWednesday"
+            class="mat-elevation-z8"
+          >
+            <!-- Time Slot Column -->
+            <ng-container matColumnDef="timeSlot">
+              <th mat-header-cell *matHeaderCellDef>Time Slot</th>
+              <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-      </div>
-    </mat-tab>
-    <mat-tab label="Thursday">
-      <div>
-        <table
-          mat-table
-          [dataSource]="gymScheduleThursday"
-          class="mat-elevation-z8"
-        >
-          <!-- Time Slot Column -->
-          <ng-container matColumnDef="timeSlot">
-            <th mat-header-cell *matHeaderCellDef>Time Slot</th>
-            <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
-          </ng-container>
+            <!-- Training Column -->
+            <ng-container matColumnDef="training">
+              <th mat-header-cell *matHeaderCellDef>Training</th>
+              <td mat-cell *matCellDef="let element">{{ element.training }}</td>
+            </ng-container>
 
-          <!-- Training Column -->
-          <ng-container matColumnDef="training">
-            <th mat-header-cell *matHeaderCellDef>Training</th>
-            <td mat-cell *matCellDef="let element">{{ element.training }}</td>
-          </ng-container>
+            <!-- Trainer Column -->
+            <ng-container matColumnDef="trainer">
+              <th mat-header-cell *matHeaderCellDef>Trainer</th>
+              <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
+            </ng-container>
 
-          <!-- Trainer Column -->
-          <ng-container matColumnDef="trainer">
-            <th mat-header-cell *matHeaderCellDef>Trainer</th>
-            <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
-          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-tab>
+    </div>
+    <!-- <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-      </div>
-    </mat-tab>
-    <mat-tab label="Friday">
-      <div>
-        <table
-          mat-table
-          [dataSource]="gymScheduleFriday"
-          class="mat-elevation-z8"
-        >
-          <!-- Time Slot Column -->
-          <ng-container matColumnDef="timeSlot">
-            <th mat-header-cell *matHeaderCellDef>Time Slot</th>
-            <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
-          </ng-container>
+    <!-- THURSDAY -->
+    <div *ngIf="gymScheduleThursday != []; else elseBlock">
+      <mat-tab label="Thursday">
+        <div>
+          <table
+            mat-table
+            [dataSource]="gymScheduleThursday"
+            class="mat-elevation-z8"
+          >
+            <!-- Time Slot Column -->
+            <ng-container matColumnDef="timeSlot">
+              <th mat-header-cell *matHeaderCellDef>Time Slot</th>
+              <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
+            </ng-container>
 
-          <!-- Training Column -->
-          <ng-container matColumnDef="training">
-            <th mat-header-cell *matHeaderCellDef>Training</th>
-            <td mat-cell *matCellDef="let element">{{ element.training }}</td>
-          </ng-container>
+            <!-- Training Column -->
+            <ng-container matColumnDef="training">
+              <th mat-header-cell *matHeaderCellDef>Training</th>
+              <td mat-cell *matCellDef="let element">{{ element.training }}</td>
+            </ng-container>
 
-          <!-- Trainer Column -->
-          <ng-container matColumnDef="trainer">
-            <th mat-header-cell *matHeaderCellDef>Trainer</th>
-            <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
-          </ng-container>
+            <!-- Trainer Column -->
+            <ng-container matColumnDef="trainer">
+              <th mat-header-cell *matHeaderCellDef>Trainer</th>
+              <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-      </div>
-    </mat-tab>
-    <mat-tab label="Saturday">
-      <div>
-        <table
-          mat-table
-          [dataSource]="gymScheduleSaturday"
-          class="mat-elevation-z8"
-        >
-          <!-- Time Slot Column -->
-          <ng-container matColumnDef="timeSlot">
-            <th mat-header-cell *matHeaderCellDef>Time Slot</th>
-            <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
-          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-tab>
+    </div>
+    <!-- <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
 
-          <!-- Training Column -->
-          <ng-container matColumnDef="training">
-            <th mat-header-cell *matHeaderCellDef>Training</th>
-            <td mat-cell *matCellDef="let element">{{ element.training }}</td>
-          </ng-container>
+    <!-- FRIDAY -->
+    <div *ngIf="gymScheduleFriday != []; else elseBlock">
+      <mat-tab label="Friday">
+        <div>
+          <table
+            mat-table
+            [dataSource]="gymScheduleFriday"
+            class="mat-elevation-z8"
+          >
+            <!-- Time Slot Column -->
+            <ng-container matColumnDef="timeSlot">
+              <th mat-header-cell *matHeaderCellDef>Time Slot</th>
+              <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
+            </ng-container>
 
-          <!-- Trainer Column -->
-          <ng-container matColumnDef="trainer">
-            <th mat-header-cell *matHeaderCellDef>Trainer</th>
-            <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
-          </ng-container>
+            <!-- Training Column -->
+            <ng-container matColumnDef="training">
+              <th mat-header-cell *matHeaderCellDef>Training</th>
+              <td mat-cell *matCellDef="let element">{{ element.training }}</td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-      </div>
-    </mat-tab>
+            <!-- Trainer Column -->
+            <ng-container matColumnDef="trainer">
+              <th mat-header-cell *matHeaderCellDef>Trainer</th>
+              <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-tab>
+    </div>
+    <!-- <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
+
+    <!-- SATURDAY -->
+    <div *ngIf="gymScheduleSaturday != []; else elseBlock">
+      <mat-tab label="Saturday">
+        <div>
+          <table
+            mat-table
+            [dataSource]="gymScheduleSaturday"
+            class="mat-elevation-z8"
+          >
+            <!-- Time Slot Column -->
+            <ng-container matColumnDef="timeSlot">
+              <th mat-header-cell *matHeaderCellDef>Time Slot</th>
+              <td mat-cell *matCellDef="let element">{{ element.hour }}</td>
+            </ng-container>
+
+            <!-- Training Column -->
+            <ng-container matColumnDef="training">
+              <th mat-header-cell *matHeaderCellDef>Training</th>
+              <td mat-cell *matCellDef="let element">{{ element.training }}</td>
+            </ng-container>
+
+            <!-- Trainer Column -->
+            <ng-container matColumnDef="trainer">
+              <th mat-header-cell *matHeaderCellDef>Trainer</th>
+              <td mat-cell *matCellDef="let element">{{ element.trainer }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-tab>
+    </div>
+    <ng-template #elseBlock>No group trainings for today!</ng-template>
   </mat-tab-group>
 
   <br />
   <div>
     <p class="reserve-now">Reserve here your place for a class!</p>
-    <button class="button-primary" mat-raised-button color="primary" (click)="reserveNow()">Reserve NOW</button>
+    <button
+      class="button-primary"
+      mat-raised-button
+      color="primary"
+      (click)="reserveNow()"
+    >
+      Reserve NOW
+    </button>
   </div>
 </div>
