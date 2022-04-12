@@ -6,7 +6,7 @@
 <div class="form-reserve-now">
   <!-- <h1 class="title"></h1>
   <br><br><br><br> -->
-  <form class="note-details-form">
+  <form class="reserve-now-form" [formGroup]="reserveForm">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input
@@ -14,7 +14,11 @@
         name="name"
         placeholder="What is your name?"
         required="true"
+        formControlName="name"
       /> 
+      <mat-error *ngIf="nameControl?.invalid && (nameControl?.dirty || nameControl?.touched)" class="alert">
+        Name is required.
+      </mat-error>
       </mat-form-field>
       <br/>
 
@@ -25,26 +29,36 @@
         name="email"
         placeholder="What is your email?"
         required="true"
+        formControlName="email"
       />
+      <mat-error *ngIf="emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)" class="alert">
+        Email is required.
+      </mat-error>
       </mat-form-field>
       <br/>
 
     <mat-form-field appearance="fill">
       <mat-label>Choose the day:</mat-label>
-      <mat-select required="true">
+      <mat-select formControlName="day" required="true">
         <!-- <mat-option *ngFor="let cat of categories" [value]="cat" >
             {{cat.value}}
           </mat-option> -->
       </mat-select>
+      <mat-error *ngIf="dayControl?.invalid && (dayControl?.dirty || dayControl?.touched)" class="alert">
+        Day is required.
+      </mat-error>
     </mat-form-field><br>
 
     <mat-form-field appearance="fill">
       <mat-label>Choose the training:</mat-label>
-      <mat-select required="true">
+      <mat-select formControlName="training" required="true">
         <!-- <mat-option *ngFor="let cat of categories" [value]="cat" >
             {{cat.value}}
           </mat-option> -->
       </mat-select>
+      <mat-error *ngIf="trainingControl?.invalid && (trainingControl?.dirty || trainingControl?.touched)" class="alert">
+        Training is required.
+      </mat-error>
     </mat-form-field><br>
 
     <button mat-raised-button color="warn">CLOSE</button>

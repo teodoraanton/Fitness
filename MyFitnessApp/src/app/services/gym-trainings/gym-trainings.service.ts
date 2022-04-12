@@ -15,7 +15,7 @@ export class GymTrainingsService {
   constructor(
     private router: Router, 
     private httpClient: HttpClient
-    ) { }
+  ) { }
 
     getGymTrainingsByGymID(gymID: String){
       return this.httpClient.get<GymTrainings[]>(
