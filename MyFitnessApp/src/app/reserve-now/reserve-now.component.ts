@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Reservation } from '../models/reservation';
+import { GymScheduleService } from '../services/gym-schedule/gym-schedule.service';
 import { ReservationService } from '../services/reservation/reservation.service';
 
 @Component({
@@ -32,7 +33,8 @@ export class ReserveNowComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private gymScheduleService: GymScheduleService
   ) { }
 
   ngOnInit(): void {

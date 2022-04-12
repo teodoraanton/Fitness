@@ -341,5 +341,47 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:FitnessBackend.Controllers.ReservationController.GetReservation">
+            <summary>
+                Return the list of reservations
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.ReservationController.CreateReservation(FitnessBackend.Models.Reservation)">
+            <summary>
+                Add a new reservation in list
+            </summary>
+            <param name="reservation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.ReservationController.GetByUser(System.String)">
+            <summary>
+                Return on another route a reservations with a specified user name
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.ReservationController.GetByReservationId(System.Guid)">
+            <summary>
+                Return the reservation with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.ReservationController.UpdateReservation(System.Guid,FitnessBackend.Models.Reservation)">
+            <summary>
+                 Return the list of reservations with a reservation updated
+            </summary>
+            <param name="id"></param>
+            <param name="reservationToUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FitnessBackend.Controllers.ReservationController.DeleteReservation(System.Guid)">
+            <summary>
+                Delete a reservation with the specified id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

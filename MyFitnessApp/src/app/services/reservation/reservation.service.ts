@@ -18,8 +18,8 @@ export class ReservationService {
   ) { }
 
   addReservation(reservation: Reservation){
-    return this.httpClient.post(this.baseUrl+"/reservation", reservation).subscribe(response => {
-      this.router.navigate(['reservation']);
+    return this.httpClient.post(this.baseUrl+"/Reservation", reservation).subscribe(response => {
+      this.router.navigate(['gym-details']);
     }, (err:HttpErrorResponse) => console.log(err));
   }
 }

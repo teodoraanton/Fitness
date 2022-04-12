@@ -22,7 +22,7 @@ export class GymScheduleComponent implements OnInit {
 
   gymOpenHours: GymOpenHours[] = [];
 
-  displayedColumns = ["timeSlot", "training", "trainer"]
+  displayedColumns = ["timeSlot", "training", "trainer", "reserve"]
 
   @Input() gymId: string = '';
 
