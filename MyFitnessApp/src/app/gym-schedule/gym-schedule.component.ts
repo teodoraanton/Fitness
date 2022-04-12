@@ -59,7 +59,6 @@ export class GymScheduleComponent implements OnInit {
   }
 
   reserveNow(gymSchedule: GymSchedule){
-    console.log(gymSchedule);
     this.router.navigate(['/reserve-now'], {
       queryParams: { day: gymSchedule.day, training: gymSchedule.training, trainer: gymSchedule.trainer, gymID: this.gymId },
     });

@@ -63,7 +63,7 @@ export class ReserveNowComponent implements OnInit {
       queryParams: { gymID: this.gymId },
     });
 
-    this._snackBar.open("The reservation was succesfully saved", "OK");
+    this._snackBar.open("The reservation was succesfully saved", "Thanks!");
     
   }
 
