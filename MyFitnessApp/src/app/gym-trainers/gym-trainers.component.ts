@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { GymTrainers } from '../models/gymTrainers';
 import { GymTrainersService } from '../services/gym-trainers/gym-trainers.service';
 

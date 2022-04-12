@@ -1,7 +1,7 @@
 <p>
-    <mat-toolbar color="primary">
-      <span class="toolbar-reserve-now">RESERVE NOW</span>
-    </mat-toolbar>
+  <mat-toolbar color="primary">
+    <span class="toolbar-reserve-now">RESERVE NOW</span>
+  </mat-toolbar>
 </p>
 <div class="form-reserve-now">
   <!-- <h1 class="title"></h1>
@@ -15,12 +15,17 @@
         placeholder="What is your name?"
         required="true"
         formControlName="name"
-      /> 
-      <mat-error *ngIf="nameControl?.invalid && (nameControl?.dirty || nameControl?.touched)" class="alert">
+      />
+      <mat-error
+        *ngIf="
+          nameControl?.invalid && (nameControl?.dirty || nameControl?.touched)
+        "
+        class="alert"
+      >
         Name is required.
       </mat-error>
-      </mat-form-field>
-      <br/>
+    </mat-form-field>
+    <br />
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label><br />
@@ -31,37 +36,72 @@
         required="true"
         formControlName="email"
       />
-      <mat-error *ngIf="emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)" class="alert">
+      <mat-error
+        *ngIf="
+          emailControl?.invalid &&
+          (emailControl?.dirty || emailControl?.touched)
+        "
+        class="alert"
+      >
         Email is required.
       </mat-error>
-      </mat-form-field>
-      <br/>
+    </mat-form-field>
+    <br /><br /><br />
 
-    <mat-form-field appearance="fill">
-      <mat-label>Choose the day:</mat-label>
-      <mat-select formControlName="day" required="true">
-        <!-- <mat-option *ngFor="let cat of categories" [value]="cat" >
-            {{cat.value}}
-          </mat-option> -->
-      </mat-select>
-      <mat-error *ngIf="dayControl?.invalid && (dayControl?.dirty || dayControl?.touched)" class="alert">
-        Day is required.
-      </mat-error>
-    </mat-form-field><br>
+    <div class="readonly">
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <label class="label-readonly"> Day: </label>
+        <span>
+          <input class="input-readonly" matInput value="{{ day }}" readonly />
+        </span>
+      </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Choose the training:</mat-label>
-      <mat-select formControlName="training" required="true">
-        <!-- <mat-option *ngFor="let cat of categories" [value]="cat" >
-            {{cat.value}}
-          </mat-option> -->
-      </mat-select>
-      <mat-error *ngIf="trainingControl?.invalid && (trainingControl?.dirty || trainingControl?.touched)" class="alert">
-        Training is required.
-      </mat-error>
-    </mat-form-field><br>
 
-    <button mat-raised-button color="warn">CLOSE</button>
-    <button mat-raised-button color="primary">SAVE</button>
+      <br /><br />
+
+
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <label class="label-readonly"> Trainer: </label>
+        <span>
+          <input class="input-readonly" matInput value="{{ trainer }}" readonly />
+        </span>
+      </div>
+
+
+      <br /><br />
+
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <label class="label-readonly"> Training: </label>
+        <span>
+          <input class="input-readonly" matInput value="{{ training }}" readonly />
+        </span>
+      </div>
+      <br /><br /><br /><br />
+    </div>
+
+    
+    <button mat-raised-button color="warn" (click)="close()">CLOSE</button>
+    <button mat-raised-button mat-stroked-button color="primary" (click)="save()">SAVE</button>
   </form>
 </div>

@@ -36,6 +36,7 @@ import { ReserveNowComponent } from './reserve-now/reserve-now.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from "@angular/material/dialog";
 import { ReservationService } from './services/reservation/reservation.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ReservationService } from './services/reservation/reservation.service';
     MatListModule,
     MatToolbarModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [
     CityService,

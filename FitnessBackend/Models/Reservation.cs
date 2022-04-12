@@ -18,5 +18,7 @@ namespace FitnessBackend.Models
         public string Day { get; set; }
         [Required]
         public string Training { get; set; }
+        [Required]
+        public string Trainer { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Gym } from '../models/gym';
-import { CityService } from '../services/city/city.service';
 import { GymService } from '../services/gym/gym.service';
 
 @Component({

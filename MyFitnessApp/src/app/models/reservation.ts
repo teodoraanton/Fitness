@@ -3,5 +3,6 @@ export interface Reservation{
     name: string;
     email: string,
     day: string,
-    training: string
+    training: string,
+    trainer: string
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Reservation } from '../models/reservation';
-import { GymScheduleService } from '../services/gym-schedule/gym-schedule.service';
 import { ReservationService } from '../services/reservation/reservation.service';
 
 @Component({
@@ -11,6 +11,10 @@ import { ReservationService } from '../services/reservation/reservation.service'
   styleUrls: ['./reserve-now.component.scss']
 })
 export class ReserveNowComponent implements OnInit {
+  day: string = "";
+  training: string = "";
+  trainer: string = "";
+  gymId: string = "";
 
   reserveForm!: FormGroup;
 
@@ -22,34 +26,61 @@ export class ReserveNowComponent implements OnInit {
     return this.reserveForm.get('email');
   }
 
-  public get dayControl() {
-    return this.reserveForm.get('day');
-  }
-  
-  public get trainingControl() {
-    return this.reserveForm.get('training');
-  }
-
   constructor(
     private _activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
+    private router: Router,
     private reservationService: ReservationService,
-    private gymScheduleService: GymScheduleService
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
+    this._activatedRoute.queryParams.subscribe((params) => {
+      this.day = params['day'];
+      this.training = params['training'];
+      this.trainer = params['trainer'];
+      this.gymId = params['gymID']
+    });
+    this.reserveForm = new FormGroup({
+      name: new FormControl(),
+      email: new FormControl()
+    })
   }
 
-  add() {
+  save() {
     const reservation: Reservation = {
       id: this.reserveForm.get('id')?.value,
       name: this.reserveForm.get('name')?.value,
       email: this.reserveForm.get('email')?.value,
-      day: this.reserveForm.get('day')?.value,
-      training: this.reserveForm.get('training')?.value
+      day: this.day,
+      training: this.training,
+      trainer: this.trainer
     }
     
-    //this.reservationService.addEmployee(reservetion);
+    this.reservationService.addReservation(reservation);
+
+    this.router.navigate(['/gym-details'], {
+      queryParams: { gymID: this.gymId },
+    });
+
+    this._snackBar.open("The reservation was succesfully saved", "OK");
     
+  }
+
+  close(){
+    this.router.navigate(['/gym-details'], {
+      queryParams: { gymID: this.gymId },
+    });
+  }
+
+
+  setupReservationDetails(reservation: Reservation) {
+    this.reserveForm = this.formBuilder.group({
+      id: reservation.id,
+      name: [reservation.name, Validators.required],
+      email: [reservation.email, Validators.required],
+      day: [reservation.day, Validators.required],
+      training: [reservation.training, Validators.required]
+    });
   }
 }
