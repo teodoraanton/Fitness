@@ -34,7 +34,6 @@ import { GymTrainingsComponent } from './gym-trainings/gym-trainings.component'
 import { GymTrainersComponent } from './gym-trainers/gym-trainers.component';
 import { ReserveNowComponent } from './reserve-now/reserve-now.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDialogModule } from "@angular/material/dialog";
 import { ReservationService } from './services/reservation/reservation.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -68,7 +67,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTabsModule,
     MatListModule,
     MatToolbarModule,
-    MatDialogModule,
     MatInputModule,
     MatSnackBarModule
   ],
