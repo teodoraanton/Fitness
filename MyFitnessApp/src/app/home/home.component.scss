@@ -81,7 +81,15 @@
 }
 
 .mat-icon-button{
-    color: rgb(47, 94, 47);
+    color: rgb(255, 0, 0);
+}
+
+.mat-card-lg-image{
+    //object-fit: cover;
+    height: 60%;
+    width: 100%;
+    margin: 0;
+    padding: 0; 
 }
 
 // .mat-card{
