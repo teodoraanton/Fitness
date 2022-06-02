@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       this.sortCities();
     });
     this.gymService.getGyms().subscribe((gyms) => {
-      this.gyms = gyms;
+      this.gyms = this.randomArrayShuffle(gyms);
     });
   }
 
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   show() {
     this.gymService.getGymsByCity(this.selectedCity).subscribe(
       (response) => {
-        this.gyms = response;
+        this.gyms = this.randomArrayShuffle(response);
       },
       (err) => console.log(err)
     );
@@ -59,5 +59,17 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/gym-details'], {
       queryParams: { gymID: gym.id },
     });
+  }
+
+  randomArrayShuffle(array: Gym[]) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
   }
 }

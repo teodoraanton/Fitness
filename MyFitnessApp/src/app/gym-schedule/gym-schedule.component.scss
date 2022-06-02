@@ -4,6 +4,13 @@
     font-weight: bold;
 }
 
+.gym-div{
+    background: url("../../assets/images/schedule.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 ::ng-deep .mat-tab-label{
     background-color: rgba(43, 61, 255, 0.3);
@@ -17,22 +24,37 @@
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    color: rgb(199, 255, 68);
 }
 
 .mat-column-training{
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    color: rgb(199, 255, 68);
 }
 
 .mat-column-trainer{
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    color: rgb(199, 255, 68);
 }
 
 .reserve-now{
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+}
+
+.mat-table{
+    background: url("../../assets/images/training.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.mat-header-cell{
+    color: rgb(0, 255, 247);
 }
